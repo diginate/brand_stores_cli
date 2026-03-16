@@ -2230,10 +2230,6 @@ def publish_product_to_channel(product_gid, publication_id, shop_name_arg, api_k
     mutation = """
     mutation publishablePublish($id: ID!, $input: [PublicationInput!]!) {
       publishablePublish(id: $id, input: $input) {
-        publishable {
-          availablePublicationCount
-          publicationCount
-        }
         userErrors {
           field
           message
@@ -2267,13 +2263,8 @@ def publish_product_to_channel(product_gid, publication_id, shop_name_arg, api_k
         if user_errors:
             print(f"  Error publishing product: {user_errors}")
         else:
-            publishable = result_data.get("data", {}).get("publishablePublish", {}).get("publishable", {})
-            if publishable:
-                print("  Product published to Online Store successfully.")
-                success = True
-            else:
-                 print("  Product publishing failed or status unknown from response.")
-                 print(json.dumps(result_data, indent=2))
+            print("  Product published to Online Store successfully.")
+            success = True
     except Exception as e:
         print(f"  An exception occurred during publishing: {e}")
     finally:
