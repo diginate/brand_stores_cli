@@ -260,6 +260,62 @@ PRODUCT_TEMPLATES = {
             {"options_template": ["Adult XXL"], "price": "18.00", "sku_template": "CTY-{id}-AXXL", "taxable": True, "weight": 0.0, "weightUnit": "POUNDS", "inventoryItem": {"tracked": True}, "inventoryPolicy": "CONTINUE" }
         ]
     },
+    "custom-tee-small-logo-black": {
+        "handle_template": "custom-tee-small-logo-black-{id}",
+        "title_template": "Custom Tee - Small Logo (Black)",
+        "descriptionHtml_template": "Black unisex Gilden softstyle printed tee with small logo.<br><br>Shipped in 3-4 working days.<br><br>Contact us for bulk options.",
+        "vendor": "Customskins",
+        "productType": "Apparel", 
+        "tags_template": ["{id}"], 
+        "status": "ACTIVE", 
+        "options_template": ["Size"],
+        "media_template": [
+            {
+                "mediaContentType": "IMAGE",
+                "originalSource_template": "https://csbrandstores.s3.eu-north-1.amazonaws.com/{id}/_previews/custom-tee-small-logo-black-{id}.png"
+            }
+        ],
+        "variants_template": [
+            {"options_template": ["Age 3-4"], "price": "18.00", "sku_template": "CTSLB-{id}-34", "taxable": True, "weight": 0.0, "weightUnit": "POUNDS", "inventoryItem": {"tracked": True}, "inventoryPolicy": "CONTINUE" },
+            {"options_template": ["Age 5-6"], "price": "18.00", "sku_template": "CTSLB-{id}-56", "taxable": True, "weight": 0.0, "weightUnit": "POUNDS", "inventoryItem": {"tracked": True}, "inventoryPolicy": "CONTINUE" },
+            {"options_template": ["Age 7-8"], "price": "18.00", "sku_template": "CTSLB-{id}-78", "taxable": True, "weight": 0.0, "weightUnit": "POUNDS", "inventoryItem": {"tracked": True}, "inventoryPolicy": "CONTINUE" },
+            {"options_template": ["Age 9-11"], "price": "18.00", "sku_template": "CTSLB-{id}-911", "taxable": True, "weight": 0.0, "weightUnit": "POUNDS", "inventoryItem": {"tracked": True}, "inventoryPolicy": "CONTINUE" },
+            {"options_template": ["Age 12-14"], "price": "18.00", "sku_template": "CTSLB-{id}-1214", "taxable": True, "weight": 0.0, "weightUnit": "POUNDS", "inventoryItem": {"tracked": True}, "inventoryPolicy": "CONTINUE" },
+            {"options_template": ["Adult Small"], "price": "18.00", "sku_template": "CTSLB-{id}-AS", "taxable": True, "weight": 0.0, "weightUnit": "POUNDS", "inventoryItem": {"tracked": True}, "inventoryPolicy": "CONTINUE" },
+            {"options_template": ["Adult Medium"], "price": "18.00", "sku_template": "CTSLB-{id}-AM", "taxable": True, "weight": 0.0, "weightUnit": "POUNDS", "inventoryItem": {"tracked": True}, "inventoryPolicy": "CONTINUE" },
+            {"options_template": ["Adult Large"], "price": "18.00", "sku_template": "CTSLB-{id}-AL", "taxable": True, "weight": 0.0, "weightUnit": "POUNDS", "inventoryItem": {"tracked": True}, "inventoryPolicy": "CONTINUE" },
+            {"options_template": ["Adult XL"], "price": "18.00", "sku_template": "CTSLB-{id}-AXL", "taxable": True, "weight": 0.0, "weightUnit": "POUNDS", "inventoryItem": {"tracked": True}, "inventoryPolicy": "CONTINUE" },
+            {"options_template": ["Adult XXL"], "price": "18.00", "sku_template": "CTSLB-{id}-AXXL", "taxable": True, "weight": 0.0, "weightUnit": "POUNDS", "inventoryItem": {"tracked": True}, "inventoryPolicy": "CONTINUE" }
+        ]
+    },
+    "custom-tee-small-logo-white": {
+        "handle_template": "custom-tee-small-logo-white-{id}",
+        "title_template": "Custom Tee - Small Logo (White)",
+        "descriptionHtml_template": "White unisex Gilden softstyle printed tee with small logo.<br><br>Shipped in 3-4 working days.<br><br>Contact us for bulk options.",
+        "vendor": "Customskins",
+        "productType": "Apparel", 
+        "tags_template": ["{id}"], 
+        "status": "ACTIVE", 
+        "options_template": ["Size"],
+        "media_template": [
+            {
+                "mediaContentType": "IMAGE",
+                "originalSource_template": "https://csbrandstores.s3.eu-north-1.amazonaws.com/{id}/_previews/custom-tee-small-logo-white-{id}.png"
+            }
+        ],
+        "variants_template": [
+            {"options_template": ["Age 3-4"], "price": "18.00", "sku_template": "CTSLW-{id}-34", "taxable": True, "weight": 0.0, "weightUnit": "POUNDS", "inventoryItem": {"tracked": True}, "inventoryPolicy": "CONTINUE" },
+            {"options_template": ["Age 5-6"], "price": "18.00", "sku_template": "CTSLW-{id}-56", "taxable": True, "weight": 0.0, "weightUnit": "POUNDS", "inventoryItem": {"tracked": True}, "inventoryPolicy": "CONTINUE" },
+            {"options_template": ["Age 7-8"], "price": "18.00", "sku_template": "CTSLW-{id}-78", "taxable": True, "weight": 0.0, "weightUnit": "POUNDS", "inventoryItem": {"tracked": True}, "inventoryPolicy": "CONTINUE" },
+            {"options_template": ["Age 9-11"], "price": "18.00", "sku_template": "CTSLW-{id}-911", "taxable": True, "weight": 0.0, "weightUnit": "POUNDS", "inventoryItem": {"tracked": True}, "inventoryPolicy": "CONTINUE" },
+            {"options_template": ["Age 12-14"], "price": "18.00", "sku_template": "CTSLW-{id}-1214", "taxable": True, "weight": 0.0, "weightUnit": "POUNDS", "inventoryItem": {"tracked": True}, "inventoryPolicy": "CONTINUE" },
+            {"options_template": ["Adult Small"], "price": "18.00", "sku_template": "CTSLW-{id}-AS", "taxable": True, "weight": 0.0, "weightUnit": "POUNDS", "inventoryItem": {"tracked": True}, "inventoryPolicy": "CONTINUE" },
+            {"options_template": ["Adult Medium"], "price": "18.00", "sku_template": "CTSLW-{id}-AM", "taxable": True, "weight": 0.0, "weightUnit": "POUNDS", "inventoryItem": {"tracked": True}, "inventoryPolicy": "CONTINUE" },
+            {"options_template": ["Adult Large"], "price": "18.00", "sku_template": "CTSLW-{id}-AL", "taxable": True, "weight": 0.0, "weightUnit": "POUNDS", "inventoryItem": {"tracked": True}, "inventoryPolicy": "CONTINUE" },
+            {"options_template": ["Adult XL"], "price": "18.00", "sku_template": "CTSLW-{id}-AXL", "taxable": True, "weight": 0.0, "weightUnit": "POUNDS", "inventoryItem": {"tracked": True}, "inventoryPolicy": "CONTINUE" },
+            {"options_template": ["Adult XXL"], "price": "18.00", "sku_template": "CTSLW-{id}-AXXL", "taxable": True, "weight": 0.0, "weightUnit": "POUNDS", "inventoryItem": {"tracked": True}, "inventoryPolicy": "CONTINUE" }
+        ]
+    },
     "die-cut-vinyl-stickers": {
         "handle_template": "die-cut-vinyl-stickers-{id}",
         "title_template": "Die Cut Vinyl Stickers",

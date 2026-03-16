@@ -34,6 +34,7 @@ run_script() {
 
 # Run each creation script
 run_script "create_all_colors.sh"
+run_script "create_small_logo_tees.sh"
 run_script "create_all_stickers.sh"
 run_script "create_hoodies.sh"
 run_script "create_misc_items.sh"
