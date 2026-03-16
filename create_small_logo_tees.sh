@@ -15,8 +15,7 @@ PRODUCT_ID="$1"
 
 # Define colors
 COLORS=(
-  "custom-tee-small-logo-black"
-  "custom-tee-small-logo-white"
+  "custom-tee-small-logo"
 )
 
 # Create all products
