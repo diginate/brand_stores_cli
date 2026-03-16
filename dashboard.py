@@ -7,6 +7,8 @@ import shopify_customer
 import tempfile
 import shutil
 import re
+import subprocess
+import threading
 
 # Load environment variables
 load_dotenv()
@@ -36,6 +38,24 @@ def add_store():
             
         return redirect(url_for('index'))
     return render_template('add.html')
+
+def run_product_creation(product_id):
+    """
+    Runs the create_products.sh script in a separate process.
+    """
+    script_path = os.path.join(os.getcwd(), 'create_products.sh')
+    
+    # Ensure script is executable
+    os.chmod(script_path, 0o755)
+    
+    try:
+        print(f"Starting product creation for {product_id}...")
+        # Run in background, redirecting output to a log file
+        log_file = open(f"creation_log_{product_id}.txt", "w")
+        subprocess.Popen([script_path, product_id], stdout=log_file, stderr=subprocess.STDOUT)
+        print(f"Product creation process started for {product_id}. Check creation_log_{product_id}.txt for details.")
+    except Exception as e:
+        print(f"Failed to start product creation script: {e}")
 
 @app.route('/upload-new', methods=['POST'])
 def upload_new_store():
@@ -114,19 +134,29 @@ def upload_new_store():
                     
                     # Add to DB
                     print(f"Attempting to add store {product_id} to database...")
-                    if db.add_store(
+                    store_added = db.add_store(
                         customer_id=product_id,
                         url=store_url,
                         email=customer['email'],
                         first_name=customer['first_name'],
                         last_name=customer['last_name'],
                         band_name="" # Band name not available in customer data
-                    ):
+                    )
+                    
+                    if store_added:
                         print(f"Store {product_id} created successfully.")
                         flash(f'Store {product_id} created in database with details from Shopify.', 'success')
                     else:
                         print(f"Store {product_id} already exists in database.")
                         flash(f'Store {product_id} already exists in database.', 'info')
+                        
+                    # Trigger product creation script
+                    # We run this whether the store was just added or already existed, 
+                    # assuming the user wants to ensure products are created for this upload.
+                    print(f"Triggering product creation script for {product_id}...")
+                    run_product_creation(product_id)
+                    flash(f'Started product creation process for {product_id}. Check logs for progress.', 'info')
+
                 else:
                     print(f"Customer {product_id} not found in Shopify.")
                     flash(f'Could not find customer {product_id} in Shopify. Store not created in DB.', 'warning')

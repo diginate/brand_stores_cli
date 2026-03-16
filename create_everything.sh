@@ -44,26 +44,12 @@ echo "Store added to database successfully."
 echo "Starting full product creation process for ID: $PRODUCT_ID"
 echo "========================================================"
 
-# Function to run a script and check its exit code
-run_script() {
-    local script_name="$1"
-    echo "Running $script_name..."
-    "$SCRIPT_DIR/$script_name" "$PRODUCT_ID"
-    
-    if [ $? -ne 0 ]; then
-        echo "Error: $script_name failed. Stopping process."
-        exit 1
-    fi
-    echo "$script_name completed successfully."
-    echo "--------------------------------------------------------"
-    # Small delay between scripts
-    sleep 2
-}
+# Call the product creation script
+"$SCRIPT_DIR/create_products.sh" "$PRODUCT_ID"
 
-# Run each creation script
-run_script "create_all_colors.sh"
-run_script "create_all_stickers.sh"
-run_script "create_hoodies.sh"
-run_script "create_misc_items.sh"
+if [ $? -ne 0 ]; then
+    echo "Error: Product creation failed."
+    exit 1
+fi
 
 echo "All products created successfully!"
