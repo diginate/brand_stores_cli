@@ -5,31 +5,60 @@ import datetime
 
 def import_csv(filename):
     try:
-        with open(filename, 'r') as csvfile:
+        with open(filename, 'r', encoding='utf-8-sig') as csvfile: # Handle BOM if present
             reader = csv.DictReader(csvfile)
-            count = 0
+            
+            skipped_na = 0
+            stores_to_add = []
+            
+            # Normalize headers to handle potential whitespace or case issues
+            # We'll just access by the known names from the file
+            
             for row in reader:
-                # Map CSV columns to DB columns if necessary
-                # Assuming CSV headers match DB columns or are close enough
-                customer_id = row.get('customer_id') or row.get('id')
-                url = row.get('url') or row.get('store_url')
-                email = row.get('email')
-                first_name = row.get('first_name')
-                last_name = row.get('last_name')
-                band_name = row.get('band_name') or row.get('artist_name')
-                date_live = row.get('date_live') or row.get('date')
+                # specific mapping for "CS CUSTOMERS - Sheet13.csv"
+                customer_id = row.get('ID') or row.get('customer_id')
+                first_name = row.get('First Name') or row.get('first_name')
+                last_name = row.get('Last Name') or row.get('last_name')
+                email = row.get('Email') or row.get('email')
+                url = row.get('Brand store') or row.get('url') or row.get('store_url')
+                band_name = row.get('BAND NAME') or row.get('band_name') or row.get('artist_name')
+                store_live = row.get('STORE LIVE')
+                
+                # Check if store is live
+                if store_live and store_live.strip().upper() != 'YES':
+                    # If STORE LIVE column exists and is not YES, skip
+                    skipped_na += 1
+                    continue
 
                 if not customer_id:
                     print(f"Skipping row with missing customer_id: {row}")
                     continue
 
-                if db.add_store(customer_id, url, email, first_name, last_name, band_name, date_live):
-                    print(f"Added store: {customer_id}")
-                    count += 1
-                else:
-                    print(f"Store {customer_id} already exists or failed to add.")
+                # Use current date for legacy imports if no date provided
+                date_live = row.get('date_live') or row.get('date')
+                if not date_live:
+                    date_live = datetime.date.today().strftime('%Y-%m-%d')
+
+                stores_to_add.append({
+                    'customer_id': customer_id,
+                    'url': url,
+                    'email': email,
+                    'first_name': first_name,
+                    'last_name': last_name,
+                    'band_name': band_name,
+                    'date_live': date_live
+                })
             
-            print(f"Import completed. Added {count} stores.")
+            print(f"Found {len(stores_to_add)} stores to process.")
+            print(f"Skipped {skipped_na} stores (Not Live/NA).")
+            
+            if stores_to_add:
+                added_count = db.add_stores_bulk(stores_to_add)
+                print(f"Import completed.")
+                print(f"  Added: {added_count}")
+                print(f"  Skipped (Already Exists): {len(stores_to_add) - added_count}")
+            else:
+                print("No stores to add.")
 
     except FileNotFoundError:
         print(f"Error: File '{filename}' not found.")

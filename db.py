@@ -108,6 +108,36 @@ def add_store(customer_id, url, email, first_name, last_name, band_name, date_li
     
     return True
 
+def add_stores_bulk(stores_list):
+    """
+    Add multiple stores at once.
+    stores_list: list of dicts with keys: customer_id, url, email, first_name, last_name, band_name, date_live
+    """
+    # Pull latest before adding
+    sync_pull()
+    
+    data = load_data()
+    existing_ids = {store['customer_id'] for store in data}
+    
+    added_count = 0
+    for store in stores_list:
+        if store['customer_id'] in existing_ids:
+            continue
+            
+        if not store.get('date_live'):
+            store['date_live'] = datetime.date.today().strftime('%Y-%m-%d')
+            
+        data.append(store)
+        existing_ids.add(store['customer_id'])
+        added_count += 1
+    
+    if added_count > 0:
+        save_data(data)
+        sync_push(f"Bulk add {added_count} stores")
+        return added_count
+    else:
+        return 0
+
 def get_store(customer_id):
     # We don't pull here to keep reads fast, relying on init_db or manual sync
     # But for critical checks, maybe we should? 
