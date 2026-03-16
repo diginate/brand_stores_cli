@@ -2282,6 +2282,114 @@ def publish_product_to_channel(product_gid, publication_id, shop_name_arg, api_k
 
     return success
 
+def add_product_to_collection(product_gid, collection_title, shop_name, api_key, password, api_version):
+    """
+    Adds a product to a collection. Creates the collection if it doesn't exist.
+    """
+    print(f"Ensuring product {product_gid} is in collection '{collection_title}'...")
+    
+    session_activated = False
+    try:
+        shop_url_for_session = f"{shop_name}.myshopify.com"
+        session = shopify.Session(shop_url_for_session, api_version, password)
+        shopify.ShopifyResource.activate_session(session)
+        session_activated = True
+        client = shopify.GraphQL()
+
+        # Step 1: Find collection by title
+        find_collection_query = """
+        query($query: String!) {
+            collections(first: 1, query: $query) {
+                edges {
+                    node {
+                        id
+                        title
+                    }
+                }
+            }
+        }
+        """
+        # Search for exact title match
+        result = client.execute(find_collection_query, {"query": f"title:{collection_title}"})
+        data = json.loads(result)
+        
+        collection_id = None
+        edges = data.get("data", {}).get("collections", {}).get("edges", [])
+        for edge in edges:
+            if edge["node"]["title"] == collection_title:
+                collection_id = edge["node"]["id"]
+                break
+        
+        # Step 2: Create collection if not found
+        if not collection_id:
+            print(f"  Collection '{collection_title}' not found. Creating...")
+            create_collection_mutation = """
+            mutation collectionCreate($input: CollectionInput!) {
+                collectionCreate(input: $input) {
+                    collection {
+                        id
+                    }
+                    userErrors {
+                        field
+                        message
+                    }
+                }
+            }
+            """
+            create_result = client.execute(create_collection_mutation, {
+                "input": {
+                    "title": collection_title,
+                    "handle": collection_title # Use ID as handle too
+                }
+            })
+            create_data = json.loads(create_result)
+            user_errors = create_data.get("data", {}).get("collectionCreate", {}).get("userErrors", [])
+            
+            if user_errors:
+                print(f"  Error creating collection: {user_errors}")
+                return False
+            
+            collection_id = create_data.get("data", {}).get("collectionCreate", {}).get("collection", {}).get("id")
+            print(f"  Created collection with ID: {collection_id}")
+        else:
+            print(f"  Found existing collection with ID: {collection_id}")
+
+        # Step 3: Add product to collection
+        add_product_mutation = """
+        mutation collectionAddProducts($id: ID!, $productIds: [ID!]!) {
+            collectionAddProducts(id: $id, productIds: $productIds) {
+                collection {
+                    id
+                }
+                userErrors {
+                    field
+                    message
+                }
+            }
+        }
+        """
+        
+        add_result = client.execute(add_product_mutation, {
+            "id": collection_id,
+            "productIds": [product_gid]
+        })
+        add_data = json.loads(add_result)
+        user_errors = add_data.get("data", {}).get("collectionAddProducts", {}).get("userErrors", [])
+        
+        if user_errors:
+             print(f"  Error adding product to collection: {user_errors}")
+             return False
+             
+        print(f"  Successfully added product {product_gid} to collection '{collection_title}'.")
+        return True
+
+    except Exception as e:
+        print(f"  Error managing collection: {e}")
+        return False
+    finally:
+        if session_activated:
+            shopify.ShopifyResource.clear_session()
+
 def main():
     setup_shopify_api()
 
@@ -2356,6 +2464,11 @@ def main():
                                                  SHOP_NAME, API_KEY, PASSWORD, API_VERSION, template_key=args.template_key)
             if link_success:
                 print("  Image linking process completed successfully (or with partial success if media not ready).")
+                
+                # Step 3 - Add product to collection
+                collection_title = args.id
+                add_product_to_collection(created_product_gid, collection_title, SHOP_NAME, API_KEY, PASSWORD, API_VERSION)
+                
             else:
                 print("  ERROR during image linking process.")
             # print("\\nNEXT STEP: Implement and call 'link_images_to_variants' function here.\\n") # Removed placeholder
