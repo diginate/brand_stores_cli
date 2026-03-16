@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Store Dashboard</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        .flash { padding: 10px; margin-bottom: 10px; border-radius: 5px; }
+        .success { background-color: #dff0d8; color: #3c763d; }
+        .error { background-color: #f2dede; color: #a94442; }
+        .actions { margin-bottom: 20px; }
+        .btn { padding: 8px 15px; background-color: #007bff; color: white; text-decoration: none; border-radius: 4px; }
+        .btn:hover { background-color: #0056b3; }
+        .btn-sync { background-color: #28a745; }
+        .btn-sync:hover { background-color: #218838; }
+    </style>
+</head>
+<body>
+    <h1>Store Dashboard</h1>
+    
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="flash {{ category }}">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <div class="actions">
+        <a href="/add" class="btn">Add New Store</a>
+        <a href="/sync" class="btn btn-sync">Sync with GitHub</a>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Customer ID</th>
+                <th>URL</th>
+                <th>Email</th>
+                <th>Name</th>
+                <th>Band/Artist</th>
+                <th>Date Live</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for store in stores %}
+            <tr>
+                <td>{{ store.customer_id }}</td>
+                <td><a href="{{ store.url }}" target="_blank">{{ store.url }}</a></td>
+                <td>{{ store.email }}</td>
+                <td>{{ store.first_name }} {{ store.last_name }}</td>
+                <td>{{ store.band_name }}</td>
+                <td>{{ store.date_live }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

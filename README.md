@@ -55,4 +55,35 @@ Now that you have your `variants.csv` file, you can update the prices.
 
 3.  The script will now begin the update process. It will automatically break your file into smaller chunks and process them one by one. You will see progress updates in the terminal. **This process can take a long time if you have many variants, so let it run until it is completely finished.**
 
-Once it's done, it will show a summary of how many variants were updated. 
+Once it's done, it will show a summary of how many variants were updated.
+
+## Store Dashboard and Management
+
+A dashboard and database have been added to track store deployments.
+
+### Setup
+
+1.  Install new dependencies: `pip install -r requirements.txt`
+2.  Initialize the database: `python3 db.py`
+
+### Usage
+
+**Dashboard:**
+Run the dashboard server:
+```bash
+python3 dashboard.py
+```
+Visit `http://localhost:5000` in your browser.
+
+**Creating a New Store:**
+Use the `create_everything.sh` script as before. It now checks the database to prevent duplicates and prompts for store details if it's a new store.
+```bash
+./create_everything.sh <PRODUCT_ID>
+```
+
+**Importing Legacy Data:**
+If you have a CSV with existing store data, you can import it:
+```bash
+python3 import_legacy.py <path_to_csv>
+```
+The CSV should have headers: `customer_id`, `url`, `email`, `first_name`, `last_name`, `band_name`, `date_live`.

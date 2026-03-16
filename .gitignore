@@ -7,3 +7,5 @@ creation_log.csv
 .env
 .vscode/
 *.zip
+stores.db
+stores.db.bak
