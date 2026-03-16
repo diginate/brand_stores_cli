@@ -2487,20 +2487,19 @@ def main():
                                                  SHOP_NAME, API_KEY, PASSWORD, API_VERSION, template_key=args.template_key)
             if link_success:
                 print("  Image linking process completed successfully (or with partial success if media not ready).")
-                
-                # Step 3 - Add product to collection
-                collection_title = args.id
-                add_product_to_collection(created_product_gid, collection_title, SHOP_NAME, API_KEY, PASSWORD, API_VERSION)
-                
-                # Step 4 - Publish to Online Store
-                publication_id = get_online_store_publication_id(SHOP_NAME, API_KEY, PASSWORD, API_VERSION)
-                if publication_id:
-                    publish_product_to_channel(created_product_gid, publication_id, SHOP_NAME, API_KEY, PASSWORD, API_VERSION)
-                else:
-                    print("  Could not find Online Store publication ID. Skipping publishing.")
-                
             else:
-                print("  ERROR during image linking process.")
+                print("  WARNING: Issues during image linking process. Proceeding with collection/publishing anyway.")
+                
+            # Step 3 - Add product to collection
+            collection_title = args.id
+            add_product_to_collection(created_product_gid, collection_title, SHOP_NAME, API_KEY, PASSWORD, API_VERSION)
+            
+            # Step 4 - Publish to Online Store
+            publication_id = get_online_store_publication_id(SHOP_NAME, API_KEY, PASSWORD, API_VERSION)
+            if publication_id:
+                publish_product_to_channel(created_product_gid, publication_id, SHOP_NAME, API_KEY, PASSWORD, API_VERSION)
+            else:
+                print("  Could not find Online Store publication ID. Skipping publishing.")
             # print("\\nNEXT STEP: Implement and call 'link_images_to_variants' function here.\\n") # Removed placeholder
 
         elif created_product_gid: # Product created but maybe no variants/media (should not happen with current template)
