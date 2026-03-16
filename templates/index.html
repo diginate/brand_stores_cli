@@ -13,10 +13,49 @@
         .success { background-color: #dff0d8; color: #3c763d; }
         .error { background-color: #f2dede; color: #a94442; }
         .actions { margin-bottom: 20px; }
-        .btn { padding: 8px 15px; background-color: #007bff; color: white; text-decoration: none; border-radius: 4px; }
+        .btn { padding: 8px 15px; background-color: #007bff; color: white; text-decoration: none; border-radius: 4px; display: inline-block; cursor: pointer; }
         .btn:hover { background-color: #0056b3; }
         .btn-sync { background-color: #28a745; }
         .btn-sync:hover { background-color: #218838; }
+        .btn-upload { background-color: #ff9800; font-size: 0.9em; padding: 5px 10px; }
+        .btn-upload:hover { background-color: #e68a00; }
+        
+        .new-store-upload {
+            border: 3px dashed #007bff;
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            margin-bottom: 30px;
+            background-color: #f8f9fa;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            position: relative;
+        }
+        .new-store-upload:hover {
+            background-color: #e9ecef;
+        }
+        .new-store-upload h3 {
+            margin-top: 0;
+            color: #007bff;
+        }
+        #upload-status {
+            margin-top: 10px;
+            font-weight: bold;
+            display: none;
+        }
+        .loading-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -31,10 +70,155 @@
     {% endwith %}
 
     <div class="actions">
-        <a href="/add" class="btn">Add New Store</a>
+        <a href="/add" class="btn">Add New Store (Manual)</a>
         <a href="/sync" class="btn btn-sync">Sync with GitHub</a>
     </div>
 
+    <!-- New Store Upload Zone -->
+    <form id="new-store-form" action="/upload-new" method="POST" enctype="multipart/form-data">
+        <div class="new-store-upload" id="drop-zone">
+            <h3>Create New Store: Drag Folder Here</h3>
+            <p>Drag a folder named with the Product ID (e.g., <code>7822589100186B</code>) to upload images to S3.</p>
+            <input type="file" id="file-input" name="files" webkitdirectory directory multiple style="display: none;">
+            <button type="button" class="btn" onclick="document.getElementById('file-input').click()">Or Select Folder</button>
+            <div id="upload-status">Processing...</div>
+            <div class="loading-overlay" id="loading-overlay">
+                <div>Uploading... please wait.</div>
+            </div>
+        </div>
+    </form>
+
+    <script>
+        const dropZone = document.getElementById('drop-zone');
+        const fileInput = document.getElementById('file-input');
+        const form = document.getElementById('new-store-form');
+        const uploadStatus = document.getElementById('upload-status');
+        const loadingOverlay = document.getElementById('loading-overlay');
+
+        dropZone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            dropZone.style.backgroundColor = '#d1ecf1';
+        });
+
+        dropZone.addEventListener('dragleave', () => {
+            dropZone.style.backgroundColor = '';
+        });
+
+        dropZone.addEventListener('drop', async (e) => {
+            e.preventDefault();
+            dropZone.style.backgroundColor = '';
+            
+            const items = e.dataTransfer.items;
+            if (items && items.length > 0) {
+                showLoading();
+                
+                // Use DataTransferItem.webkitGetAsEntry() to handle directories
+                const formData = new FormData();
+                let fileCount = 0;
+                
+                const queue = [];
+                for (let i = 0; i < items.length; i++) {
+                    const item = items[i];
+                    if (item.kind === 'file') {
+                        const entry = item.webkitGetAsEntry ? item.webkitGetAsEntry() : (item.getAsEntry ? item.getAsEntry() : null);
+                        if (entry) {
+                            queue.push(entry);
+                        } else {
+                            // Fallback for browsers without Entry API (rare for folders)
+                            const file = item.getAsFile();
+                            if (file) {
+                                formData.append('files', file, file.name);
+                                fileCount++;
+                            }
+                        }
+                    }
+                }
+
+                await processQueue(queue, formData);
+                
+                if (fileCount > 0 || Array.from(formData.keys()).length > 0) {
+                    uploadFormData(formData);
+                } else {
+                    hideLoading();
+                    alert("No files found to upload.");
+                }
+            }
+        });
+
+        async function processQueue(queue, formData) {
+            while (queue.length > 0) {
+                const entry = queue.shift();
+                if (entry.isFile) {
+                    await new Promise((resolve) => {
+                        entry.file((file) => {
+                            // Use fullPath to preserve directory structure relative to drag root
+                            // Remove leading slash if present
+                            const path = entry.fullPath.startsWith('/') ? entry.fullPath.substring(1) : entry.fullPath;
+                            formData.append('files', file, path);
+                            resolve();
+                        });
+                    });
+                } else if (entry.isDirectory) {
+                    const reader = entry.createReader();
+                    // readEntries might not return all entries in one call
+                    await new Promise((resolve) => {
+                        const readBatch = () => {
+                            reader.readEntries((entries) => {
+                                if (entries.length === 0) {
+                                    resolve();
+                                } else {
+                                    entries.forEach(e => queue.push(e));
+                                    readBatch(); // Continue reading
+                                }
+                            });
+                        };
+                        readBatch();
+                    });
+                }
+            }
+        }
+
+        function uploadFormData(formData) {
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', '/upload-new', true);
+            
+            xhr.onload = function() {
+                if (xhr.status === 200) {
+                    // Redirect or reload to show flash message
+                    window.location.reload();
+                } else {
+                    hideLoading();
+                    alert('Upload failed. Server returned: ' + xhr.status);
+                }
+            };
+            
+            xhr.onerror = function() {
+                hideLoading();
+                alert('Upload failed due to network error.');
+            };
+            
+            xhr.send(formData);
+        }
+
+        fileInput.addEventListener('change', () => {
+            if (fileInput.files.length > 0) {
+                showLoading();
+                form.submit();
+            }
+        });
+
+        function showLoading() {
+            loadingOverlay.style.display = 'flex';
+            uploadStatus.style.display = 'block';
+        }
+        
+        function hideLoading() {
+            loadingOverlay.style.display = 'none';
+            uploadStatus.style.display = 'none';
+        }
+    </script>
+
+    <h2>Existing Stores</h2>
     <table>
         <thead>
             <tr>
@@ -44,6 +228,7 @@
                 <th>Name</th>
                 <th>Band/Artist</th>
                 <th>Date Live</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -55,6 +240,9 @@
                 <td>{{ store.first_name }} {{ store.last_name }}</td>
                 <td>{{ store.band_name }}</td>
                 <td>{{ store.date_live }}</td>
+                <td>
+                    <a href="/upload/{{ store.customer_id }}" class="btn btn-upload">Upload Images</a>
+                </td>
             </tr>
             {% endfor %}
         </tbody>

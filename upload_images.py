@@ -7,22 +7,32 @@ import mimetypes
 from botocore.exceptions import NoCredentialsError, ClientError
 
 # Configuration
+# These will be loaded from environment when the module is imported
+# Make sure load_dotenv() is called before using these defaults if relying on .env
 BUCKET_NAME = os.getenv("S3_BUCKET_NAME", "csbrandstores")
 REGION = os.getenv("AWS_DEFAULT_REGION", "eu-north-1")
 
-def upload_directory_to_s3(product_id, local_directory):
+def upload_directory_to_s3(product_id, local_directory, bucket_name=None, region=None):
     """
     Uploads all files in a local directory to S3 under the path:
     {product_id}/_previews/{filename}
+    
+    Returns:
+        tuple: (success (bool), message (str), count (int))
     """
     
+    target_bucket = bucket_name or BUCKET_NAME
+    target_region = region or REGION
+    
     # Initialize S3 client
-    s3 = boto3.client('s3', region_name=REGION)
+    try:
+        s3 = boto3.client('s3', region_name=target_region)
+    except Exception as e:
+        return False, f"Failed to initialize S3 client: {e}", 0
     
     # Check if directory exists
     if not os.path.isdir(local_directory):
-        print(f"Error: Directory '{local_directory}' does not exist.")
-        sys.exit(1)
+        return False, f"Directory '{local_directory}' does not exist.", 0
         
     # Check if the directory structure matches the expected format (Product ID -> _previews)
     # If the user points to a parent folder that contains the Product ID folder
@@ -39,7 +49,7 @@ def upload_directory_to_s3(product_id, local_directory):
     
     print(f"Starting upload for Product ID: {product_id}")
     print(f"Source Directory: {local_directory}")
-    print(f"Target Bucket: {BUCKET_NAME}")
+    print(f"Target Bucket: {target_bucket}")
     print("-" * 40)
 
     files_uploaded = 0
@@ -61,12 +71,12 @@ def upload_directory_to_s3(product_id, local_directory):
                 if content_type is None:
                     content_type = 'application/octet-stream'
                 
-                print(f"Uploading {filename} to s3://{BUCKET_NAME}/{s3_key}...")
+                print(f"Uploading {filename} to s3://{target_bucket}/{s3_key}...")
                 
                 # Upload file
                 s3.upload_file(
                     file_path, 
-                    BUCKET_NAME, 
+                    target_bucket, 
                     s3_key, 
                     ExtraArgs={'ContentType': content_type}
                 )
@@ -74,24 +84,19 @@ def upload_directory_to_s3(product_id, local_directory):
                 
         print("-" * 40)
         if files_uploaded == 0:
-            print("Warning: No files were found to upload.")
+            return True, "Warning: No files were found to upload.", 0
         else:
-            print(f"Successfully uploaded {files_uploaded} files.")
-            print(f"Images should be accessible at: https://{BUCKET_NAME}.s3.{REGION}.amazonaws.com/{product_id}/_previews/<filename>")
+            msg = f"Successfully uploaded {files_uploaded} files."
+            print(msg)
+            print(f"Images should be accessible at: https://{target_bucket}.s3.{target_region}.amazonaws.com/{product_id}/_previews/<filename>")
+            return True, msg, files_uploaded
 
     except NoCredentialsError:
-        print("Error: AWS credentials not found.")
-        print("Please configure your credentials using one of the following methods:")
-        print("1. Set environment variables: AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY")
-        print("2. Run 'aws configure' if you have the AWS CLI installed")
-        print("3. Create a ~/.aws/credentials file")
-        sys.exit(1)
+        return False, "Error: AWS credentials not found.", 0
     except ClientError as e:
-        print(f"AWS Error: {e}")
-        sys.exit(1)
+        return False, f"AWS Error: {e}", 0
     except Exception as e:
-        print(f"Unexpected error: {e}")
-        sys.exit(1)
+        return False, f"Unexpected error: {e}", 0
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Upload product images to S3 for Shopify CLI App")
@@ -100,4 +105,10 @@ if __name__ == "__main__":
     
     args = parser.parse_args()
     
-    upload_directory_to_s3(args.product_id, args.directory)
+    success, message, count = upload_directory_to_s3(args.product_id, args.directory)
+    if not success:
+        print(message)
+        sys.exit(1)
+    else:
+        print(message)
+        sys.exit(0)

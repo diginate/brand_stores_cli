@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Images</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+        form { max-width: 500px; margin: 0 auto; }
+        label { display: block; margin-bottom: 5px; }
+        input { width: 100%; padding: 8px; margin-bottom: 15px; box-sizing: border-box; }
+        button { padding: 10px 20px; background-color: #4CAF50; color: white; border: none; cursor: pointer; }
+        button:hover { background-color: #45a049; }
+        .back-link { display: inline-block; margin-top: 20px; text-decoration: none; color: #007bff; }
+        .drop-zone {
+            border: 2px dashed #ccc;
+            border-radius: 5px;
+            padding: 40px;
+            text-align: center;
+            margin-bottom: 20px;
+            cursor: pointer;
+        }
+        .drop-zone:hover {
+            background-color: #f9f9f9;
+        }
+        .flash { padding: 10px; margin-bottom: 10px; border-radius: 5px; }
+        .success { background-color: #dff0d8; color: #3c763d; }
+        .error { background-color: #f2dede; color: #a94442; }
+    </style>
+</head>
+<body>
+    <h1>Upload Images for Store {{ store.customer_id }}</h1>
+    
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="flash {{ category }}">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <p>Drag and drop the folder containing your images here, or click to select.</p>
+    
+    <form method="POST" enctype="multipart/form-data">
+        <div class="drop-zone" id="drop-zone">
+            <p>Drag folder here</p>
+            <input type="file" id="file-input" name="files" webkitdirectory directory multiple style="display: none;">
+            <button type="button" onclick="document.getElementById('file-input').click()">Select Folder</button>
+        </div>
+        <div id="file-list"></div>
+        <button type="submit">Upload to S3</button>
+    </form>
+
+    <script>
+        const dropZone = document.getElementById('drop-zone');
+        const fileInput = document.getElementById('file-input');
+        const fileList = document.getElementById('file-list');
+
+        dropZone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            dropZone.style.backgroundColor = '#eef';
+        });
+
+        dropZone.addEventListener('dragleave', () => {
+            dropZone.style.backgroundColor = '';
+        });
+
+        dropZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dropZone.style.backgroundColor = '';
+            
+            const files = e.dataTransfer.files;
+            if (files.length > 0) {
+                fileInput.files = files;
+                updateFileList(files);
+            }
+        });
+
+        fileInput.addEventListener('change', () => {
+            updateFileList(fileInput.files);
+        });
+
+        function updateFileList(files) {
+            fileList.innerHTML = `<p>Selected ${files.length} files.</p>`;
+            // Optionally list first few files
+            let list = '<ul>';
+            for (let i = 0; i < Math.min(files.length, 5); i++) {
+                list += `<li>${files[i].webkitRelativePath || files[i].name}</li>`;
+            }
+            if (files.length > 5) list += '<li>...</li>';
+            list += '</ul>';
+            fileList.innerHTML += list;
+        }
+    </script>
+    
+    <br>
+    <a href="/" class="back-link">Back to Dashboard</a>
+</body>
+</html>
