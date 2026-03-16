@@ -2305,6 +2305,49 @@ def publish_product_to_channel(product_gid, publication_id, shop_name_arg, api_k
 
     return success
 
+def get_products_by_tag(tag, shop_name, api_key, password, api_version):
+    """
+    Fetches all products that have a specific tag.
+    """
+    session_activated = False
+    products = []
+    try:
+        shop_url_for_session = f"{shop_name}.myshopify.com"
+        session = shopify.Session(shop_url_for_session, api_version, password)
+        shopify.ShopifyResource.activate_session(session)
+        session_activated = True
+        client = shopify.GraphQL()
+        
+        query = """
+        query($query: String!) {
+            products(first: 50, query: $query) {
+                edges {
+                    node {
+                        id
+                        title
+                        status
+                    }
+                }
+            }
+        }
+        """
+        # Search for tag
+        search_query = f"tag:{tag}"
+        result_str = client.execute(query, variables={"query": search_query})
+        result_data = json.loads(result_str)
+        
+        edges = result_data.get("data", {}).get("products", {}).get("edges", [])
+        for edge in edges:
+            products.append(edge.get("node"))
+            
+    except Exception as e:
+        print(f"Error fetching products by tag: {e}")
+    finally:
+        if session_activated:
+            shopify.ShopifyResource.clear_session()
+            
+    return products
+
 def add_product_to_collection(product_gid, collection_title, shop_name, api_key, password, api_version):
     """
     Adds a product to a collection. Creates the collection if it doesn't exist.
@@ -2448,6 +2491,10 @@ def main():
     parser_create_product.add_argument("--template-key", required=True, help="The key of the product template to use (e.g., custom-tee-black).")
     parser_create_product.add_argument("--id", required=True, help="The new ID to use for placeholders in the template.")
 
+    # Subparser for publishing all products for a given ID
+    parser_publish_all = subparsers.add_parser("publish-all-for-id", help="Publish all products associated with a customer ID to the Online Store.")
+    parser_publish_all.add_argument("--id", required=True, help="The customer ID to search for (used as a tag).")
+
     args = parser.parse_args()
 
     if args.command == "details":
@@ -2506,6 +2553,32 @@ def main():
             print(f"  Product GID: {created_product_gid}, but issue fetching variants/media details.")
         else:
             print(f"  Product creation failed or returned no GID.")
+
+    elif args.command == "publish-all-for-id":
+        print(f"Attempting to publish all products for ID '{args.id}'...")
+        # Step 1: Get Online Store Publication ID
+        pub_id = get_online_store_publication_id(SHOP_NAME, API_KEY, PASSWORD, API_VERSION)
+        if not pub_id:
+            print("  ERROR: Could not find Online Store publication ID. Aborting.")
+        else:
+            # Step 2: Get products with tag = args.id
+            products = get_products_by_tag(args.id, SHOP_NAME, API_KEY, PASSWORD, API_VERSION)
+            if not products:
+                print(f"  No products found with tag '{args.id}'.")
+            else:
+                print(f"  Found {len(products)} products with tag '{args.id}'. Publishing...")
+                
+                # Step 3: Loop and publish
+                for prod in products:
+                    print(f"  Processing product: {prod.get('title')} ({prod.get('id')})")
+                    
+                    # Ensure in collection
+                    add_product_to_collection(prod.get('id'), args.id, SHOP_NAME, API_KEY, PASSWORD, API_VERSION)
+                    
+                    # Publish
+                    publish_product_to_channel(prod.get('id'), pub_id, SHOP_NAME, API_KEY, PASSWORD, API_VERSION)
+                    
+                print("  Finished processing all products.")
 
     elif args.command is None: # If no command is given, show help
         parser.print_help()

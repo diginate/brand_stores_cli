@@ -1,0 +1,3527 @@
+Starting product creation scripts for ID: 5862785777818
+========================================================
+Running create_all_colors.sh...
+Creating all color variants with ID 5862785777818...
+------------------------------------
+Creating custom-tee-black product...
+Attempting to create product using template 'custom-tee-black' with ID '5862785777818'...
+Attempting to create product (with full variants) on Shopify using template: 'custom-tee-black', ID: '5862785777818'
+  Fetching Shopify Location ID for inventory...
+  Using Shopify Location GID: gid://shopify/Location/64837845146
+  Shopify session activated for GraphQL client (for productCreate).
+  Executing productCreate mutation (base product)...
+  NOTICE: Handle 'custom-tee-black-5862785777818' already exists. Attempting to fetch existing product...
+  NOTICE: Existing product options [] do not match template ['Size'].
+  Deleting existing product gid://shopify/Product/8052652441754 to recreate with correct structure...
+  Existing product deleted. Retrying creation...
+  SUCCESS: Product recreated. GID: gid://shopify/Product/15418888356215
+  Creating options and variants...
+DEBUG: Options input for productOptionsCreate: [
+  {
+    "name": "Size",
+    "values": [
+      {
+        "name": "Age 3-4"
+      },
+      {
+        "name": "Age 5-6"
+      },
+      {
+        "name": "Age 7-8"
+      },
+      {
+        "name": "Age 9-11"
+      },
+      {
+        "name": "Age 12-14"
+      },
+      {
+        "name": "Adult Small"
+      },
+      {
+        "name": "Adult Medium"
+      },
+      {
+        "name": "Adult Large"
+      },
+      {
+        "name": "Adult XL"
+      },
+      {
+        "name": "Adult XXL"
+      }
+    ]
+  }
+]
+DEBUG: Fetched existing options: [
+  {
+    "id": "gid://shopify/ProductOption/17859001581943",
+    "name": "Title",
+    "values": [
+      "Default Title"
+    ]
+  }
+]
+Step 1.5a-0: Deleting ALL existing variants from product gid://shopify/Product/15418888356215 to allow option updates.
+  Found 1 variants to delete.
+  Successfully deleted 1 variants.
+Step 1.5a-1: Deleting existing options from product gid://shopify/Product/15418888356215
+Successfully deleted option ID: gid://shopify/ProductOption/17859001581943
+Successfully deleted 1 existing option(s).
+Step 1.5b: Creating new options for product gid://shopify/Product/15418888356215 using productOptionsCreate: ['Size']
+DEBUG: productOptionsCreate mutation variables: {
+  "productId": "gid://shopify/Product/15418888356215",
+  "options": [
+    {
+      "name": "Size",
+      "values": [
+        {
+          "name": "Age 3-4"
+        },
+        {
+          "name": "Age 5-6"
+        },
+        {
+          "name": "Age 7-8"
+        },
+        {
+          "name": "Age 9-11"
+        },
+        {
+          "name": "Age 12-14"
+        },
+        {
+          "name": "Adult Small"
+        },
+        {
+          "name": "Adult Medium"
+        },
+        {
+          "name": "Adult Large"
+        },
+        {
+          "name": "Adult XL"
+        },
+        {
+          "name": "Adult XXL"
+        }
+      ]
+    }
+  ],
+  "variantStrategy": "CREATE"
+}
+DEBUG: productOptionsCreate product response (product.options): [
+  {
+    "id": "gid://shopify/ProductOption/17859001778551",
+    "name": "Size",
+    "values": [
+      "Age 3-4",
+      "Age 5-6",
+      "Age 7-8",
+      "Age 9-11",
+      "Age 12-14",
+      "Adult Small",
+      "Adult Medium",
+      "Adult Large",
+      "Adult XL",
+      "Adult XXL"
+    ]
+  }
+]
+Success: Product options created via productOptionsCreate. New options: [
+  {
+    "id": "gid://shopify/ProductOption/17859001778551",
+    "name": "Size",
+    "values": [
+      "Age 3-4",
+      "Age 5-6",
+      "Age 7-8",
+      "Age 9-11",
+      "Age 12-14",
+      "Adult Small",
+      "Adult Medium",
+      "Adult Large",
+      "Adult XL",
+      "Adult XXL"
+    ]
+  }
+]
+Variants after productOptionsCreate: [
+  {
+    "id": "gid://shopify/ProductVariant/56880591896951",
+    "title": "Age 3-4"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880591962487",
+    "title": "Age 5-6"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880591995255",
+    "title": "Age 7-8"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880592028023",
+    "title": "Age 9-11"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880592060791",
+    "title": "Age 12-14"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880592093559",
+    "title": "Adult Small"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880592126327",
+    "title": "Adult Medium"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880592159095",
+    "title": "Adult Large"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880592191863",
+    "title": "Adult XL"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880592224631",
+    "title": "Adult XXL"
+  }
+]
+First variant 'Age 3-4' (ID: gid://shopify/ProductVariant/56880591896951) appears to be auto-created by productOptionsCreate.
+No 'Default Title' variant found after productUpdate to delete.
+DEBUG: Part 4 - First variant was auto-created during productUpdate.
+Step 1.5 Succeeded: Options updated, variants created/handled, and default variant deleted/replaced.
+  Step 3: Updating variant details (prices, SKUs, weights)...
+DEBUG: variants_to_update payload (first 2): [
+  {
+    "id": "gid://shopify/ProductVariant/56880591896951",
+    "price": "18.00",
+    "sku": "CTB-GQL-5862785777818-34",
+    "taxable": true,
+    "weight": 0.0,
+    "weightUnit": "POUNDS",
+    "inventoryItem": {
+      "tracked": true
+    },
+    "inventoryPolicy": "CONTINUE"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880591962487",
+    "price": "18.00",
+    "sku": "CTB-GQL-5862785777818-56",
+    "taxable": true,
+    "weight": 0.0,
+    "weightUnit": "POUNDS",
+    "inventoryItem": {
+      "tracked": true
+    },
+    "inventoryPolicy": "CONTINUE"
+  }
+]
+  Running bulk update for price, taxable, inventory...
+  Successfully bulk updated 10 variants (price/inventory).
+  Sample updated variant: {'id': 'gid://shopify/ProductVariant/56880591896951', 'price': '18.00', 'inventoryItem': {'tracked': True}}
+  Running loop update for SKU and Weight...
+  Successfully updated SKU/Weight for 10 variants.
+  Fetched 1 media items for existing/created product.
+  Missing expected media: https://csbrandstores.s3.eu-north-1.amazonaws.com/5862785777818/_previews/custom-tee-black-5862785777818.png. Queuing for creation.
+  Found stale media (not in template): https://cdn.shopify.com/s/files/1/0562/9604/6746/files/custom-tee-black-5862785777818.png?v=1773661564. Queuing for deletion.
+  Deleting 1 stale media items...
+  Successfully deleted 1 stale media items.
+  Creating 1 new media items...
+  Successfully created 1 new media items.
+  Shopify session cleared by create_product_on_shopify.
+  Product GID: gid://shopify/Product/15418888356215
+  Variants created: 10
+  Media created: 1
+
+  Starting Step 2: Linking images to 10 variants...
+  Shopify session activated for GraphQL client (for variant image linking).
+  WARNING: Media source missing (PROCESSING?), added fallback key 'DEFAULT'.
+  Media GID map (for READY media) created with 1 items.
+  Available Media URLs:
+    - DEFAULT
+  Prepared bulk update for 10 variants.
+  SUCCESS: Bulk updated 10 variants with images.
+  Shopify session cleared by link_images_to_variants.
+  SUCCESS: All 10 variants successfully linked to images.
+  Image linking process completed successfully (or with partial success if media not ready).
+custom-tee-black product creation completed.
+------------------------------------
+------------------------------------
+Creating custom-tee-white product...
+Attempting to create product using template 'custom-tee-white' with ID '5862785777818'...
+Attempting to create product (with full variants) on Shopify using template: 'custom-tee-white', ID: '5862785777818'
+  Fetching Shopify Location ID for inventory...
+  Using Shopify Location GID: gid://shopify/Location/64837845146
+  Shopify session activated for GraphQL client (for productCreate).
+  Executing productCreate mutation (base product)...
+  NOTICE: Handle 'custom-tee-white-5862785777818' already exists. Attempting to fetch existing product...
+  NOTICE: Existing product options [] do not match template ['Size'].
+  Deleting existing product gid://shopify/Product/8052652507290 to recreate with correct structure...
+  Existing product deleted. Retrying creation...
+  SUCCESS: Product recreated. GID: gid://shopify/Product/15418889044343
+  Creating options and variants...
+DEBUG: Options input for productOptionsCreate: [
+  {
+    "name": "Size",
+    "values": [
+      {
+        "name": "Age 3-4"
+      },
+      {
+        "name": "Age 5-6"
+      },
+      {
+        "name": "Age 7-8"
+      },
+      {
+        "name": "Age 9-11"
+      },
+      {
+        "name": "Age 12-14"
+      },
+      {
+        "name": "Adult Small"
+      },
+      {
+        "name": "Adult Medium"
+      },
+      {
+        "name": "Adult Large"
+      },
+      {
+        "name": "Adult XL"
+      },
+      {
+        "name": "Adult XXL"
+      }
+    ]
+  }
+]
+DEBUG: Fetched existing options: [
+  {
+    "id": "gid://shopify/ProductOption/17859002302839",
+    "name": "Title",
+    "values": [
+      "Default Title"
+    ]
+  }
+]
+Step 1.5a-0: Deleting ALL existing variants from product gid://shopify/Product/15418889044343 to allow option updates.
+  Found 1 variants to delete.
+  Successfully deleted 1 variants.
+Step 1.5a-1: Deleting existing options from product gid://shopify/Product/15418889044343
+Successfully deleted option ID: gid://shopify/ProductOption/17859002302839
+Successfully deleted 1 existing option(s).
+Step 1.5b: Creating new options for product gid://shopify/Product/15418889044343 using productOptionsCreate: ['Size']
+DEBUG: productOptionsCreate mutation variables: {
+  "productId": "gid://shopify/Product/15418889044343",
+  "options": [
+    {
+      "name": "Size",
+      "values": [
+        {
+          "name": "Age 3-4"
+        },
+        {
+          "name": "Age 5-6"
+        },
+        {
+          "name": "Age 7-8"
+        },
+        {
+          "name": "Age 9-11"
+        },
+        {
+          "name": "Age 12-14"
+        },
+        {
+          "name": "Adult Small"
+        },
+        {
+          "name": "Adult Medium"
+        },
+        {
+          "name": "Adult Large"
+        },
+        {
+          "name": "Adult XL"
+        },
+        {
+          "name": "Adult XXL"
+        }
+      ]
+    }
+  ],
+  "variantStrategy": "CREATE"
+}
+DEBUG: productOptionsCreate product response (product.options): [
+  {
+    "id": "gid://shopify/ProductOption/17859002401143",
+    "name": "Size",
+    "values": [
+      "Age 3-4",
+      "Age 5-6",
+      "Age 7-8",
+      "Age 9-11",
+      "Age 12-14",
+      "Adult Small",
+      "Adult Medium",
+      "Adult Large",
+      "Adult XL",
+      "Adult XXL"
+    ]
+  }
+]
+Success: Product options created via productOptionsCreate. New options: [
+  {
+    "id": "gid://shopify/ProductOption/17859002401143",
+    "name": "Size",
+    "values": [
+      "Age 3-4",
+      "Age 5-6",
+      "Age 7-8",
+      "Age 9-11",
+      "Age 12-14",
+      "Adult Small",
+      "Adult Medium",
+      "Adult Large",
+      "Adult XL",
+      "Adult XXL"
+    ]
+  }
+]
+Variants after productOptionsCreate: [
+  {
+    "id": "gid://shopify/ProductVariant/56880592781687",
+    "title": "Age 3-4"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880593109367",
+    "title": "Age 5-6"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880593142135",
+    "title": "Age 7-8"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880593174903",
+    "title": "Age 9-11"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880593207671",
+    "title": "Age 12-14"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880593240439",
+    "title": "Adult Small"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880593273207",
+    "title": "Adult Medium"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880593305975",
+    "title": "Adult Large"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880593338743",
+    "title": "Adult XL"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880593371511",
+    "title": "Adult XXL"
+  }
+]
+First variant 'Age 3-4' (ID: gid://shopify/ProductVariant/56880592781687) appears to be auto-created by productOptionsCreate.
+No 'Default Title' variant found after productUpdate to delete.
+DEBUG: Part 4 - First variant was auto-created during productUpdate.
+Step 1.5 Succeeded: Options updated, variants created/handled, and default variant deleted/replaced.
+  Step 3: Updating variant details (prices, SKUs, weights)...
+DEBUG: variants_to_update payload (first 2): [
+  {
+    "id": "gid://shopify/ProductVariant/56880592781687",
+    "price": "18.00",
+    "sku": "CTW-5862785777818-34",
+    "taxable": true,
+    "weight": 0.0,
+    "weightUnit": "POUNDS",
+    "inventoryItem": {
+      "tracked": true
+    },
+    "inventoryPolicy": "CONTINUE"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880593109367",
+    "price": "18.00",
+    "sku": "CTW-5862785777818-56",
+    "taxable": true,
+    "weight": 0.0,
+    "weightUnit": "POUNDS",
+    "inventoryItem": {
+      "tracked": true
+    },
+    "inventoryPolicy": "CONTINUE"
+  }
+]
+  Running bulk update for price, taxable, inventory...
+  Successfully bulk updated 10 variants (price/inventory).
+  Sample updated variant: {'id': 'gid://shopify/ProductVariant/56880592781687', 'price': '18.00', 'inventoryItem': {'tracked': True}}
+  Running loop update for SKU and Weight...
+  Successfully updated SKU/Weight for 10 variants.
+  Fetched 1 media items for existing/created product.
+  Missing expected media: https://csbrandstores.s3.eu-north-1.amazonaws.com/5862785777818/_previews/custom-tee-white-5862785777818.png. Queuing for creation.
+  Found stale media (not in template): https://cdn.shopify.com/s/files/1/0562/9604/6746/files/custom-tee-white-5862785777818.png?v=1773661579. Queuing for deletion.
+  Deleting 1 stale media items...
+  Successfully deleted 1 stale media items.
+  Creating 1 new media items...
+  Successfully created 1 new media items.
+  Shopify session cleared by create_product_on_shopify.
+  Product GID: gid://shopify/Product/15418889044343
+  Variants created: 10
+  Media created: 1
+
+  Starting Step 2: Linking images to 10 variants...
+  Shopify session activated for GraphQL client (for variant image linking).
+  WARNING: Media source missing (PROCESSING?), added fallback key 'DEFAULT'.
+  Media GID map (for READY media) created with 1 items.
+  Available Media URLs:
+    - DEFAULT
+  Prepared bulk update for 10 variants.
+  SUCCESS: Bulk updated 10 variants with images.
+  Shopify session cleared by link_images_to_variants.
+  SUCCESS: All 10 variants successfully linked to images.
+  Image linking process completed successfully (or with partial success if media not ready).
+custom-tee-white product creation completed.
+------------------------------------
+------------------------------------
+Creating custom-tee-grey product...
+Attempting to create product using template 'custom-tee-grey' with ID '5862785777818'...
+Attempting to create product (with full variants) on Shopify using template: 'custom-tee-grey', ID: '5862785777818'
+  Fetching Shopify Location ID for inventory...
+  Using Shopify Location GID: gid://shopify/Location/64837845146
+  Shopify session activated for GraphQL client (for productCreate).
+  Executing productCreate mutation (base product)...
+  NOTICE: Handle 'custom-tee-grey-5862785777818' already exists. Attempting to fetch existing product...
+  NOTICE: Existing product options [] do not match template ['Size'].
+  Deleting existing product gid://shopify/Product/8052652540058 to recreate with correct structure...
+  Existing product deleted. Retrying creation...
+  SUCCESS: Product recreated. GID: gid://shopify/Product/15418889437559
+  Creating options and variants...
+DEBUG: Options input for productOptionsCreate: [
+  {
+    "name": "Size",
+    "values": [
+      {
+        "name": "Age 3-4"
+      },
+      {
+        "name": "Age 5-6"
+      },
+      {
+        "name": "Age 7-8"
+      },
+      {
+        "name": "Age 9-11"
+      },
+      {
+        "name": "Age 12-14"
+      },
+      {
+        "name": "Adult Small"
+      },
+      {
+        "name": "Adult Medium"
+      },
+      {
+        "name": "Adult Large"
+      },
+      {
+        "name": "Adult XL"
+      },
+      {
+        "name": "Adult XXL"
+      }
+    ]
+  }
+]
+DEBUG: Fetched existing options: [
+  {
+    "id": "gid://shopify/ProductOption/17859002728823",
+    "name": "Title",
+    "values": [
+      "Default Title"
+    ]
+  }
+]
+Step 1.5a-0: Deleting ALL existing variants from product gid://shopify/Product/15418889437559 to allow option updates.
+  Found 1 variants to delete.
+  Successfully deleted 1 variants.
+Step 1.5a-1: Deleting existing options from product gid://shopify/Product/15418889437559
+Successfully deleted option ID: gid://shopify/ProductOption/17859002728823
+Successfully deleted 1 existing option(s).
+Step 1.5b: Creating new options for product gid://shopify/Product/15418889437559 using productOptionsCreate: ['Size']
+DEBUG: productOptionsCreate mutation variables: {
+  "productId": "gid://shopify/Product/15418889437559",
+  "options": [
+    {
+      "name": "Size",
+      "values": [
+        {
+          "name": "Age 3-4"
+        },
+        {
+          "name": "Age 5-6"
+        },
+        {
+          "name": "Age 7-8"
+        },
+        {
+          "name": "Age 9-11"
+        },
+        {
+          "name": "Age 12-14"
+        },
+        {
+          "name": "Adult Small"
+        },
+        {
+          "name": "Adult Medium"
+        },
+        {
+          "name": "Adult Large"
+        },
+        {
+          "name": "Adult XL"
+        },
+        {
+          "name": "Adult XXL"
+        }
+      ]
+    }
+  ],
+  "variantStrategy": "CREATE"
+}
+DEBUG: productOptionsCreate product response (product.options): [
+  {
+    "id": "gid://shopify/ProductOption/17859002761591",
+    "name": "Size",
+    "values": [
+      "Age 3-4",
+      "Age 5-6",
+      "Age 7-8",
+      "Age 9-11",
+      "Age 12-14",
+      "Adult Small",
+      "Adult Medium",
+      "Adult Large",
+      "Adult XL",
+      "Adult XXL"
+    ]
+  }
+]
+Success: Product options created via productOptionsCreate. New options: [
+  {
+    "id": "gid://shopify/ProductOption/17859002761591",
+    "name": "Size",
+    "values": [
+      "Age 3-4",
+      "Age 5-6",
+      "Age 7-8",
+      "Age 9-11",
+      "Age 12-14",
+      "Adult Small",
+      "Adult Medium",
+      "Adult Large",
+      "Adult XL",
+      "Adult XXL"
+    ]
+  }
+]
+Variants after productOptionsCreate: [
+  {
+    "id": "gid://shopify/ProductVariant/56880593797495",
+    "title": "Age 3-4"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880593830263",
+    "title": "Age 5-6"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880593863031",
+    "title": "Age 7-8"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880593895799",
+    "title": "Age 9-11"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880593928567",
+    "title": "Age 12-14"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880593961335",
+    "title": "Adult Small"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880593994103",
+    "title": "Adult Medium"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880594026871",
+    "title": "Adult Large"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880594059639",
+    "title": "Adult XL"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880594092407",
+    "title": "Adult XXL"
+  }
+]
+First variant 'Age 3-4' (ID: gid://shopify/ProductVariant/56880593797495) appears to be auto-created by productOptionsCreate.
+No 'Default Title' variant found after productUpdate to delete.
+DEBUG: Part 4 - First variant was auto-created during productUpdate.
+Step 1.5 Succeeded: Options updated, variants created/handled, and default variant deleted/replaced.
+  Step 3: Updating variant details (prices, SKUs, weights)...
+DEBUG: variants_to_update payload (first 2): [
+  {
+    "id": "gid://shopify/ProductVariant/56880593797495",
+    "price": "18.00",
+    "sku": "CTG-5862785777818-34",
+    "taxable": true,
+    "weight": 0.0,
+    "weightUnit": "POUNDS",
+    "inventoryItem": {
+      "tracked": true
+    },
+    "inventoryPolicy": "CONTINUE"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880593830263",
+    "price": "18.00",
+    "sku": "CTG-5862785777818-56",
+    "taxable": true,
+    "weight": 0.0,
+    "weightUnit": "POUNDS",
+    "inventoryItem": {
+      "tracked": true
+    },
+    "inventoryPolicy": "CONTINUE"
+  }
+]
+  Running bulk update for price, taxable, inventory...
+  Successfully bulk updated 10 variants (price/inventory).
+  Sample updated variant: {'id': 'gid://shopify/ProductVariant/56880593797495', 'price': '18.00', 'inventoryItem': {'tracked': True}}
+  Running loop update for SKU and Weight...
+  Successfully updated SKU/Weight for 10 variants.
+  Fetched 1 media items for existing/created product.
+  Missing expected media: https://csbrandstores.s3.eu-north-1.amazonaws.com/5862785777818/_previews/custom-tee-grey-5862785777818.png. Queuing for creation.
+  Found stale media (not in template): https://cdn.shopify.com/s/files/1/0562/9604/6746/files/custom-tee-grey-5862785777818.png?v=1773661589. Queuing for deletion.
+  Deleting 1 stale media items...
+  Successfully deleted 1 stale media items.
+  Creating 1 new media items...
+  Successfully created 1 new media items.
+  Shopify session cleared by create_product_on_shopify.
+  Product GID: gid://shopify/Product/15418889437559
+  Variants created: 10
+  Media created: 1
+
+  Starting Step 2: Linking images to 10 variants...
+  Shopify session activated for GraphQL client (for variant image linking).
+  WARNING: Media source missing (PROCESSING?), added fallback key 'DEFAULT'.
+  Media GID map (for READY media) created with 1 items.
+  Available Media URLs:
+    - DEFAULT
+  Prepared bulk update for 10 variants.
+  SUCCESS: Bulk updated 10 variants with images.
+  Shopify session cleared by link_images_to_variants.
+  SUCCESS: All 10 variants successfully linked to images.
+  Image linking process completed successfully (or with partial success if media not ready).
+custom-tee-grey product creation completed.
+------------------------------------
+------------------------------------
+Creating custom-tee-blue product...
+Attempting to create product using template 'custom-tee-blue' with ID '5862785777818'...
+Attempting to create product (with full variants) on Shopify using template: 'custom-tee-blue', ID: '5862785777818'
+  Fetching Shopify Location ID for inventory...
+  Using Shopify Location GID: gid://shopify/Location/64837845146
+  Shopify session activated for GraphQL client (for productCreate).
+  Executing productCreate mutation (base product)...
+  NOTICE: Handle 'custom-tee-blue-5862785777818' already exists. Attempting to fetch existing product...
+  NOTICE: Existing product options [] do not match template ['Size'].
+  Deleting existing product gid://shopify/Product/8052652605594 to recreate with correct structure...
+  Existing product deleted. Retrying creation...
+  SUCCESS: Product recreated. GID: gid://shopify/Product/15418889470327
+  Creating options and variants...
+DEBUG: Options input for productOptionsCreate: [
+  {
+    "name": "Size",
+    "values": [
+      {
+        "name": "Age 3-4"
+      },
+      {
+        "name": "Age 5-6"
+      },
+      {
+        "name": "Age 7-8"
+      },
+      {
+        "name": "Age 9-11"
+      },
+      {
+        "name": "Age 12-14"
+      },
+      {
+        "name": "Adult Small"
+      },
+      {
+        "name": "Adult Medium"
+      },
+      {
+        "name": "Adult Large"
+      },
+      {
+        "name": "Adult XL"
+      },
+      {
+        "name": "Adult XXL"
+      }
+    ]
+  }
+]
+DEBUG: Fetched existing options: [
+  {
+    "id": "gid://shopify/ProductOption/17859002794359",
+    "name": "Title",
+    "values": [
+      "Default Title"
+    ]
+  }
+]
+Step 1.5a-0: Deleting ALL existing variants from product gid://shopify/Product/15418889470327 to allow option updates.
+  Found 1 variants to delete.
+  Successfully deleted 1 variants.
+Step 1.5a-1: Deleting existing options from product gid://shopify/Product/15418889470327
+Successfully deleted option ID: gid://shopify/ProductOption/17859002794359
+Successfully deleted 1 existing option(s).
+Step 1.5b: Creating new options for product gid://shopify/Product/15418889470327 using productOptionsCreate: ['Size']
+DEBUG: productOptionsCreate mutation variables: {
+  "productId": "gid://shopify/Product/15418889470327",
+  "options": [
+    {
+      "name": "Size",
+      "values": [
+        {
+          "name": "Age 3-4"
+        },
+        {
+          "name": "Age 5-6"
+        },
+        {
+          "name": "Age 7-8"
+        },
+        {
+          "name": "Age 9-11"
+        },
+        {
+          "name": "Age 12-14"
+        },
+        {
+          "name": "Adult Small"
+        },
+        {
+          "name": "Adult Medium"
+        },
+        {
+          "name": "Adult Large"
+        },
+        {
+          "name": "Adult XL"
+        },
+        {
+          "name": "Adult XXL"
+        }
+      ]
+    }
+  ],
+  "variantStrategy": "CREATE"
+}
+DEBUG: productOptionsCreate product response (product.options): [
+  {
+    "id": "gid://shopify/ProductOption/17859002827127",
+    "name": "Size",
+    "values": [
+      "Age 3-4",
+      "Age 5-6",
+      "Age 7-8",
+      "Age 9-11",
+      "Age 12-14",
+      "Adult Small",
+      "Adult Medium",
+      "Adult Large",
+      "Adult XL",
+      "Adult XXL"
+    ]
+  }
+]
+Success: Product options created via productOptionsCreate. New options: [
+  {
+    "id": "gid://shopify/ProductOption/17859002827127",
+    "name": "Size",
+    "values": [
+      "Age 3-4",
+      "Age 5-6",
+      "Age 7-8",
+      "Age 9-11",
+      "Age 12-14",
+      "Adult Small",
+      "Adult Medium",
+      "Adult Large",
+      "Adult XL",
+      "Adult XXL"
+    ]
+  }
+]
+Variants after productOptionsCreate: [
+  {
+    "id": "gid://shopify/ProductVariant/56880594321783",
+    "title": "Age 3-4"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880594354551",
+    "title": "Age 5-6"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880594387319",
+    "title": "Age 7-8"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880594420087",
+    "title": "Age 9-11"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880594452855",
+    "title": "Age 12-14"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880594485623",
+    "title": "Adult Small"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880594518391",
+    "title": "Adult Medium"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880594551159",
+    "title": "Adult Large"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880594583927",
+    "title": "Adult XL"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880594616695",
+    "title": "Adult XXL"
+  }
+]
+First variant 'Age 3-4' (ID: gid://shopify/ProductVariant/56880594321783) appears to be auto-created by productOptionsCreate.
+No 'Default Title' variant found after productUpdate to delete.
+DEBUG: Part 4 - First variant was auto-created during productUpdate.
+Step 1.5 Succeeded: Options updated, variants created/handled, and default variant deleted/replaced.
+  Step 3: Updating variant details (prices, SKUs, weights)...
+DEBUG: variants_to_update payload (first 2): [
+  {
+    "id": "gid://shopify/ProductVariant/56880594321783",
+    "price": "18.00",
+    "sku": "CTBL-5862785777818-34",
+    "taxable": true,
+    "weight": 0.0,
+    "weightUnit": "POUNDS",
+    "inventoryItem": {
+      "tracked": true
+    },
+    "inventoryPolicy": "CONTINUE"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880594354551",
+    "price": "18.00",
+    "sku": "CTBL-5862785777818-56",
+    "taxable": true,
+    "weight": 0.0,
+    "weightUnit": "POUNDS",
+    "inventoryItem": {
+      "tracked": true
+    },
+    "inventoryPolicy": "CONTINUE"
+  }
+]
+  Running bulk update for price, taxable, inventory...
+  Successfully bulk updated 10 variants (price/inventory).
+  Sample updated variant: {'id': 'gid://shopify/ProductVariant/56880594321783', 'price': '18.00', 'inventoryItem': {'tracked': True}}
+  Running loop update for SKU and Weight...
+  Successfully updated SKU/Weight for 10 variants.
+  Fetched 1 media items for existing/created product.
+  Missing expected media: https://csbrandstores.s3.eu-north-1.amazonaws.com/5862785777818/_previews/custom-tee-blue-5862785777818.png. Queuing for creation.
+  Found stale media (not in template): https://cdn.shopify.com/s/files/1/0562/9604/6746/files/custom-tee-blue-5862785777818.png?v=1773661601. Queuing for deletion.
+  Deleting 1 stale media items...
+  Successfully deleted 1 stale media items.
+  Creating 1 new media items...
+  Successfully created 1 new media items.
+  Shopify session cleared by create_product_on_shopify.
+  Product GID: gid://shopify/Product/15418889470327
+  Variants created: 10
+  Media created: 1
+
+  Starting Step 2: Linking images to 10 variants...
+  Shopify session activated for GraphQL client (for variant image linking).
+  WARNING: Media source missing (PROCESSING?), added fallback key 'DEFAULT'.
+  Media GID map (for READY media) created with 1 items.
+  Available Media URLs:
+    - DEFAULT
+  Prepared bulk update for 10 variants.
+  SUCCESS: Bulk updated 10 variants with images.
+  Shopify session cleared by link_images_to_variants.
+  SUCCESS: All 10 variants successfully linked to images.
+  Image linking process completed successfully (or with partial success if media not ready).
+custom-tee-blue product creation completed.
+------------------------------------
+------------------------------------
+Creating custom-tee-red product...
+Attempting to create product using template 'custom-tee-red' with ID '5862785777818'...
+Attempting to create product (with full variants) on Shopify using template: 'custom-tee-red', ID: '5862785777818'
+  Fetching Shopify Location ID for inventory...
+  Using Shopify Location GID: gid://shopify/Location/64837845146
+  Shopify session activated for GraphQL client (for productCreate).
+  Executing productCreate mutation (base product)...
+  NOTICE: Handle 'custom-tee-red-5862785777818' already exists. Attempting to fetch existing product...
+  NOTICE: Existing product options [] do not match template ['Size'].
+  Deleting existing product gid://shopify/Product/8052652671130 to recreate with correct structure...
+  Existing product deleted. Retrying creation...
+  SUCCESS: Product recreated. GID: gid://shopify/Product/15418889535863
+  Creating options and variants...
+DEBUG: Options input for productOptionsCreate: [
+  {
+    "name": "Size",
+    "values": [
+      {
+        "name": "Age 3-4"
+      },
+      {
+        "name": "Age 5-6"
+      },
+      {
+        "name": "Age 7-8"
+      },
+      {
+        "name": "Age 9-11"
+      },
+      {
+        "name": "Age 12-14"
+      },
+      {
+        "name": "Adult Small"
+      },
+      {
+        "name": "Adult Medium"
+      },
+      {
+        "name": "Adult Large"
+      },
+      {
+        "name": "Adult XL"
+      },
+      {
+        "name": "Adult XXL"
+      }
+    ]
+  }
+]
+DEBUG: Fetched existing options: [
+  {
+    "id": "gid://shopify/ProductOption/17859002925431",
+    "name": "Title",
+    "values": [
+      "Default Title"
+    ]
+  }
+]
+Step 1.5a-0: Deleting ALL existing variants from product gid://shopify/Product/15418889535863 to allow option updates.
+  Found 1 variants to delete.
+  Successfully deleted 1 variants.
+Step 1.5a-1: Deleting existing options from product gid://shopify/Product/15418889535863
+Successfully deleted option ID: gid://shopify/ProductOption/17859002925431
+Successfully deleted 1 existing option(s).
+Step 1.5b: Creating new options for product gid://shopify/Product/15418889535863 using productOptionsCreate: ['Size']
+DEBUG: productOptionsCreate mutation variables: {
+  "productId": "gid://shopify/Product/15418889535863",
+  "options": [
+    {
+      "name": "Size",
+      "values": [
+        {
+          "name": "Age 3-4"
+        },
+        {
+          "name": "Age 5-6"
+        },
+        {
+          "name": "Age 7-8"
+        },
+        {
+          "name": "Age 9-11"
+        },
+        {
+          "name": "Age 12-14"
+        },
+        {
+          "name": "Adult Small"
+        },
+        {
+          "name": "Adult Medium"
+        },
+        {
+          "name": "Adult Large"
+        },
+        {
+          "name": "Adult XL"
+        },
+        {
+          "name": "Adult XXL"
+        }
+      ]
+    }
+  ],
+  "variantStrategy": "CREATE"
+}
+DEBUG: productOptionsCreate product response (product.options): [
+  {
+    "id": "gid://shopify/ProductOption/17859002958199",
+    "name": "Size",
+    "values": [
+      "Age 3-4",
+      "Age 5-6",
+      "Age 7-8",
+      "Age 9-11",
+      "Age 12-14",
+      "Adult Small",
+      "Adult Medium",
+      "Adult Large",
+      "Adult XL",
+      "Adult XXL"
+    ]
+  }
+]
+Success: Product options created via productOptionsCreate. New options: [
+  {
+    "id": "gid://shopify/ProductOption/17859002958199",
+    "name": "Size",
+    "values": [
+      "Age 3-4",
+      "Age 5-6",
+      "Age 7-8",
+      "Age 9-11",
+      "Age 12-14",
+      "Adult Small",
+      "Adult Medium",
+      "Adult Large",
+      "Adult XL",
+      "Adult XXL"
+    ]
+  }
+]
+Variants after productOptionsCreate: [
+  {
+    "id": "gid://shopify/ProductVariant/56880594747767",
+    "title": "Age 3-4"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880594780535",
+    "title": "Age 5-6"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880594813303",
+    "title": "Age 7-8"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880594846071",
+    "title": "Age 9-11"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880594878839",
+    "title": "Age 12-14"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880594911607",
+    "title": "Adult Small"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880594944375",
+    "title": "Adult Medium"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880594977143",
+    "title": "Adult Large"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880595009911",
+    "title": "Adult XL"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880595042679",
+    "title": "Adult XXL"
+  }
+]
+First variant 'Age 3-4' (ID: gid://shopify/ProductVariant/56880594747767) appears to be auto-created by productOptionsCreate.
+No 'Default Title' variant found after productUpdate to delete.
+DEBUG: Part 4 - First variant was auto-created during productUpdate.
+Step 1.5 Succeeded: Options updated, variants created/handled, and default variant deleted/replaced.
+  Step 3: Updating variant details (prices, SKUs, weights)...
+DEBUG: variants_to_update payload (first 2): [
+  {
+    "id": "gid://shopify/ProductVariant/56880594747767",
+    "price": "18.00",
+    "sku": "CTR-5862785777818-34",
+    "taxable": true,
+    "weight": 0.0,
+    "weightUnit": "POUNDS",
+    "inventoryItem": {
+      "tracked": true
+    },
+    "inventoryPolicy": "CONTINUE"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880594780535",
+    "price": "18.00",
+    "sku": "CTR-5862785777818-56",
+    "taxable": true,
+    "weight": 0.0,
+    "weightUnit": "POUNDS",
+    "inventoryItem": {
+      "tracked": true
+    },
+    "inventoryPolicy": "CONTINUE"
+  }
+]
+  Running bulk update for price, taxable, inventory...
+  Successfully bulk updated 10 variants (price/inventory).
+  Sample updated variant: {'id': 'gid://shopify/ProductVariant/56880594747767', 'price': '18.00', 'inventoryItem': {'tracked': True}}
+  Running loop update for SKU and Weight...
+  Successfully updated SKU/Weight for 10 variants.
+  Fetched 1 media items for existing/created product.
+  Missing expected media: https://csbrandstores.s3.eu-north-1.amazonaws.com/5862785777818/_previews/custom-tee-red-5862785777818.png. Queuing for creation.
+  Found stale media (not in template): https://cdn.shopify.com/s/files/1/0562/9604/6746/files/custom-tee-red-5862785777818.png?v=1773661611. Queuing for deletion.
+  Deleting 1 stale media items...
+  Successfully deleted 1 stale media items.
+  Creating 1 new media items...
+  Successfully created 1 new media items.
+  Shopify session cleared by create_product_on_shopify.
+  Product GID: gid://shopify/Product/15418889535863
+  Variants created: 10
+  Media created: 1
+
+  Starting Step 2: Linking images to 10 variants...
+  Shopify session activated for GraphQL client (for variant image linking).
+  WARNING: Media source missing (PROCESSING?), added fallback key 'DEFAULT'.
+  Media GID map (for READY media) created with 1 items.
+  Available Media URLs:
+    - DEFAULT
+  Prepared bulk update for 10 variants.
+  SUCCESS: Bulk updated 10 variants with images.
+  Shopify session cleared by link_images_to_variants.
+  SUCCESS: All 10 variants successfully linked to images.
+  Image linking process completed successfully (or with partial success if media not ready).
+custom-tee-red product creation completed.
+------------------------------------
+------------------------------------
+Creating custom-tee-green product...
+Attempting to create product using template 'custom-tee-green' with ID '5862785777818'...
+Attempting to create product (with full variants) on Shopify using template: 'custom-tee-green', ID: '5862785777818'
+  Fetching Shopify Location ID for inventory...
+  Using Shopify Location GID: gid://shopify/Location/64837845146
+  Shopify session activated for GraphQL client (for productCreate).
+  Executing productCreate mutation (base product)...
+  NOTICE: Handle 'custom-tee-green-5862785777818' already exists. Attempting to fetch existing product...
+  NOTICE: Existing product options [] do not match template ['Size'].
+  Deleting existing product gid://shopify/Product/8052652802202 to recreate with correct structure...
+  Existing product deleted. Retrying creation...
+  SUCCESS: Product recreated. GID: gid://shopify/Product/15418889666935
+  Creating options and variants...
+DEBUG: Options input for productOptionsCreate: [
+  {
+    "name": "Size",
+    "values": [
+      {
+        "name": "Age 3-4"
+      },
+      {
+        "name": "Age 5-6"
+      },
+      {
+        "name": "Age 7-8"
+      },
+      {
+        "name": "Age 9-11"
+      },
+      {
+        "name": "Age 12-14"
+      },
+      {
+        "name": "Adult Small"
+      },
+      {
+        "name": "Adult Medium"
+      },
+      {
+        "name": "Adult Large"
+      },
+      {
+        "name": "Adult XL"
+      },
+      {
+        "name": "Adult XXL"
+      }
+    ]
+  }
+]
+DEBUG: Fetched existing options: [
+  {
+    "id": "gid://shopify/ProductOption/17859003154807",
+    "name": "Title",
+    "values": [
+      "Default Title"
+    ]
+  }
+]
+Step 1.5a-0: Deleting ALL existing variants from product gid://shopify/Product/15418889666935 to allow option updates.
+  Found 1 variants to delete.
+  Successfully deleted 1 variants.
+Step 1.5a-1: Deleting existing options from product gid://shopify/Product/15418889666935
+Successfully deleted option ID: gid://shopify/ProductOption/17859003154807
+Successfully deleted 1 existing option(s).
+Step 1.5b: Creating new options for product gid://shopify/Product/15418889666935 using productOptionsCreate: ['Size']
+DEBUG: productOptionsCreate mutation variables: {
+  "productId": "gid://shopify/Product/15418889666935",
+  "options": [
+    {
+      "name": "Size",
+      "values": [
+        {
+          "name": "Age 3-4"
+        },
+        {
+          "name": "Age 5-6"
+        },
+        {
+          "name": "Age 7-8"
+        },
+        {
+          "name": "Age 9-11"
+        },
+        {
+          "name": "Age 12-14"
+        },
+        {
+          "name": "Adult Small"
+        },
+        {
+          "name": "Adult Medium"
+        },
+        {
+          "name": "Adult Large"
+        },
+        {
+          "name": "Adult XL"
+        },
+        {
+          "name": "Adult XXL"
+        }
+      ]
+    }
+  ],
+  "variantStrategy": "CREATE"
+}
+DEBUG: productOptionsCreate product response (product.options): [
+  {
+    "id": "gid://shopify/ProductOption/17859003220343",
+    "name": "Size",
+    "values": [
+      "Age 3-4",
+      "Age 5-6",
+      "Age 7-8",
+      "Age 9-11",
+      "Age 12-14",
+      "Adult Small",
+      "Adult Medium",
+      "Adult Large",
+      "Adult XL",
+      "Adult XXL"
+    ]
+  }
+]
+Success: Product options created via productOptionsCreate. New options: [
+  {
+    "id": "gid://shopify/ProductOption/17859003220343",
+    "name": "Size",
+    "values": [
+      "Age 3-4",
+      "Age 5-6",
+      "Age 7-8",
+      "Age 9-11",
+      "Age 12-14",
+      "Adult Small",
+      "Adult Medium",
+      "Adult Large",
+      "Adult XL",
+      "Adult XXL"
+    ]
+  }
+]
+Variants after productOptionsCreate: [
+  {
+    "id": "gid://shopify/ProductVariant/56880595665271",
+    "title": "Age 3-4"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880595698039",
+    "title": "Age 5-6"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880595730807",
+    "title": "Age 7-8"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880595763575",
+    "title": "Age 9-11"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880595796343",
+    "title": "Age 12-14"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880595829111",
+    "title": "Adult Small"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880595861879",
+    "title": "Adult Medium"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880595894647",
+    "title": "Adult Large"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880595927415",
+    "title": "Adult XL"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880595960183",
+    "title": "Adult XXL"
+  }
+]
+First variant 'Age 3-4' (ID: gid://shopify/ProductVariant/56880595665271) appears to be auto-created by productOptionsCreate.
+No 'Default Title' variant found after productUpdate to delete.
+DEBUG: Part 4 - First variant was auto-created during productUpdate.
+Step 1.5 Succeeded: Options updated, variants created/handled, and default variant deleted/replaced.
+  Step 3: Updating variant details (prices, SKUs, weights)...
+DEBUG: variants_to_update payload (first 2): [
+  {
+    "id": "gid://shopify/ProductVariant/56880595665271",
+    "price": "18.00",
+    "sku": "CTGR-5862785777818-34",
+    "taxable": true,
+    "weight": 0.0,
+    "weightUnit": "POUNDS",
+    "inventoryItem": {
+      "tracked": true
+    },
+    "inventoryPolicy": "CONTINUE"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880595698039",
+    "price": "18.00",
+    "sku": "CTGR-5862785777818-56",
+    "taxable": true,
+    "weight": 0.0,
+    "weightUnit": "POUNDS",
+    "inventoryItem": {
+      "tracked": true
+    },
+    "inventoryPolicy": "CONTINUE"
+  }
+]
+  Running bulk update for price, taxable, inventory...
+  Successfully bulk updated 10 variants (price/inventory).
+  Sample updated variant: {'id': 'gid://shopify/ProductVariant/56880595665271', 'price': '18.00', 'inventoryItem': {'tracked': True}}
+  Running loop update for SKU and Weight...
+  Successfully updated SKU/Weight for 10 variants.
+  Fetched 1 media items for existing/created product.
+  Missing expected media: https://csbrandstores.s3.eu-north-1.amazonaws.com/5862785777818/_previews/custom-tee-green-5862785777818.png. Queuing for creation.
+  Found stale media (not in template): https://cdn.shopify.com/s/files/1/0562/9604/6746/files/custom-tee-green-5862785777818.png?v=1773661621. Queuing for deletion.
+  Deleting 1 stale media items...
+  Successfully deleted 1 stale media items.
+  Creating 1 new media items...
+  Successfully created 1 new media items.
+  Shopify session cleared by create_product_on_shopify.
+  Product GID: gid://shopify/Product/15418889666935
+  Variants created: 10
+  Media created: 1
+
+  Starting Step 2: Linking images to 10 variants...
+  Shopify session activated for GraphQL client (for variant image linking).
+  WARNING: Media source missing (PROCESSING?), added fallback key 'DEFAULT'.
+  Media GID map (for READY media) created with 1 items.
+  Available Media URLs:
+    - DEFAULT
+  Prepared bulk update for 10 variants.
+  SUCCESS: Bulk updated 10 variants with images.
+  Shopify session cleared by link_images_to_variants.
+  SUCCESS: All 10 variants successfully linked to images.
+  Image linking process completed successfully (or with partial success if media not ready).
+custom-tee-green product creation completed.
+------------------------------------
+------------------------------------
+Creating custom-tee-yellow product...
+Attempting to create product using template 'custom-tee-yellow' with ID '5862785777818'...
+Attempting to create product (with full variants) on Shopify using template: 'custom-tee-yellow', ID: '5862785777818'
+  Fetching Shopify Location ID for inventory...
+  Using Shopify Location GID: gid://shopify/Location/64837845146
+  Shopify session activated for GraphQL client (for productCreate).
+  Executing productCreate mutation (base product)...
+  NOTICE: Handle 'custom-tee-yellow-5862785777818' already exists. Attempting to fetch existing product...
+  NOTICE: Existing product options [] do not match template ['Size'].
+  Deleting existing product gid://shopify/Product/8052652834970 to recreate with correct structure...
+  Existing product deleted. Retrying creation...
+  SUCCESS: Product recreated. GID: gid://shopify/Product/15418889732471
+  Creating options and variants...
+DEBUG: Options input for productOptionsCreate: [
+  {
+    "name": "Size",
+    "values": [
+      {
+        "name": "Age 3-4"
+      },
+      {
+        "name": "Age 5-6"
+      },
+      {
+        "name": "Age 7-8"
+      },
+      {
+        "name": "Age 9-11"
+      },
+      {
+        "name": "Age 12-14"
+      },
+      {
+        "name": "Adult Small"
+      },
+      {
+        "name": "Adult Medium"
+      },
+      {
+        "name": "Adult Large"
+      },
+      {
+        "name": "Adult XL"
+      },
+      {
+        "name": "Adult XXL"
+      }
+    ]
+  }
+]
+DEBUG: Fetched existing options: [
+  {
+    "id": "gid://shopify/ProductOption/17859003285879",
+    "name": "Title",
+    "values": [
+      "Default Title"
+    ]
+  }
+]
+Step 1.5a-0: Deleting ALL existing variants from product gid://shopify/Product/15418889732471 to allow option updates.
+  Found 1 variants to delete.
+  Successfully deleted 1 variants.
+Step 1.5a-1: Deleting existing options from product gid://shopify/Product/15418889732471
+Successfully deleted option ID: gid://shopify/ProductOption/17859003285879
+Successfully deleted 1 existing option(s).
+Step 1.5b: Creating new options for product gid://shopify/Product/15418889732471 using productOptionsCreate: ['Size']
+DEBUG: productOptionsCreate mutation variables: {
+  "productId": "gid://shopify/Product/15418889732471",
+  "options": [
+    {
+      "name": "Size",
+      "values": [
+        {
+          "name": "Age 3-4"
+        },
+        {
+          "name": "Age 5-6"
+        },
+        {
+          "name": "Age 7-8"
+        },
+        {
+          "name": "Age 9-11"
+        },
+        {
+          "name": "Age 12-14"
+        },
+        {
+          "name": "Adult Small"
+        },
+        {
+          "name": "Adult Medium"
+        },
+        {
+          "name": "Adult Large"
+        },
+        {
+          "name": "Adult XL"
+        },
+        {
+          "name": "Adult XXL"
+        }
+      ]
+    }
+  ],
+  "variantStrategy": "CREATE"
+}
+DEBUG: productOptionsCreate product response (product.options): [
+  {
+    "id": "gid://shopify/ProductOption/17859003318647",
+    "name": "Size",
+    "values": [
+      "Age 3-4",
+      "Age 5-6",
+      "Age 7-8",
+      "Age 9-11",
+      "Age 12-14",
+      "Adult Small",
+      "Adult Medium",
+      "Adult Large",
+      "Adult XL",
+      "Adult XXL"
+    ]
+  }
+]
+Success: Product options created via productOptionsCreate. New options: [
+  {
+    "id": "gid://shopify/ProductOption/17859003318647",
+    "name": "Size",
+    "values": [
+      "Age 3-4",
+      "Age 5-6",
+      "Age 7-8",
+      "Age 9-11",
+      "Age 12-14",
+      "Adult Small",
+      "Adult Medium",
+      "Adult Large",
+      "Adult XL",
+      "Adult XXL"
+    ]
+  }
+]
+Variants after productOptionsCreate: [
+  {
+    "id": "gid://shopify/ProductVariant/56880596255095",
+    "title": "Age 3-4"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880596287863",
+    "title": "Age 5-6"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880596320631",
+    "title": "Age 7-8"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880596353399",
+    "title": "Age 9-11"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880596386167",
+    "title": "Age 12-14"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880596418935",
+    "title": "Adult Small"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880596451703",
+    "title": "Adult Medium"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880596484471",
+    "title": "Adult Large"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880596517239",
+    "title": "Adult XL"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880596550007",
+    "title": "Adult XXL"
+  }
+]
+First variant 'Age 3-4' (ID: gid://shopify/ProductVariant/56880596255095) appears to be auto-created by productOptionsCreate.
+No 'Default Title' variant found after productUpdate to delete.
+DEBUG: Part 4 - First variant was auto-created during productUpdate.
+Step 1.5 Succeeded: Options updated, variants created/handled, and default variant deleted/replaced.
+  Step 3: Updating variant details (prices, SKUs, weights)...
+DEBUG: variants_to_update payload (first 2): [
+  {
+    "id": "gid://shopify/ProductVariant/56880596255095",
+    "price": "18.00",
+    "sku": "CTY-5862785777818-34",
+    "taxable": true,
+    "weight": 0.0,
+    "weightUnit": "POUNDS",
+    "inventoryItem": {
+      "tracked": true
+    },
+    "inventoryPolicy": "CONTINUE"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880596287863",
+    "price": "18.00",
+    "sku": "CTY-5862785777818-56",
+    "taxable": true,
+    "weight": 0.0,
+    "weightUnit": "POUNDS",
+    "inventoryItem": {
+      "tracked": true
+    },
+    "inventoryPolicy": "CONTINUE"
+  }
+]
+  Running bulk update for price, taxable, inventory...
+  Successfully bulk updated 10 variants (price/inventory).
+  Sample updated variant: {'id': 'gid://shopify/ProductVariant/56880596255095', 'price': '18.00', 'inventoryItem': {'tracked': True}}
+  Running loop update for SKU and Weight...
+  Successfully updated SKU/Weight for 10 variants.
+  Fetched 1 media items for existing/created product.
+  Missing expected media: https://csbrandstores.s3.eu-north-1.amazonaws.com/5862785777818/_previews/custom-tee-yellow-5862785777818.png. Queuing for creation.
+  Found stale media (not in template): https://cdn.shopify.com/s/files/1/0562/9604/6746/files/custom-tee-yellow-5862785777818.png?v=1773661632. Queuing for deletion.
+  Deleting 1 stale media items...
+  Successfully deleted 1 stale media items.
+  Creating 1 new media items...
+  Successfully created 1 new media items.
+  Shopify session cleared by create_product_on_shopify.
+  Product GID: gid://shopify/Product/15418889732471
+  Variants created: 10
+  Media created: 1
+
+  Starting Step 2: Linking images to 10 variants...
+  Shopify session activated for GraphQL client (for variant image linking).
+  WARNING: Media source missing (PROCESSING?), added fallback key 'DEFAULT'.
+  Media GID map (for READY media) created with 1 items.
+  Available Media URLs:
+    - DEFAULT
+  Prepared bulk update for 10 variants.
+  SUCCESS: Bulk updated 10 variants with images.
+  Shopify session cleared by link_images_to_variants.
+  SUCCESS: All 10 variants successfully linked to images.
+  Image linking process completed successfully (or with partial success if media not ready).
+custom-tee-yellow product creation completed.
+------------------------------------
+All products created successfully!
+create_all_colors.sh completed successfully.
+--------------------------------------------------------
+Running create_all_stickers.sh...
+Creating all sticker products with ID 5862785777818...
+------------------------------------
+Creating die-cut-vinyl-stickers product...
+Attempting to create product using template 'die-cut-vinyl-stickers' with ID '5862785777818'...
+Attempting to create product (with full variants) on Shopify using template: 'die-cut-vinyl-stickers', ID: '5862785777818'
+  Fetching Shopify Location ID for inventory...
+  Using Shopify Location GID: gid://shopify/Location/64837845146
+  Shopify session activated for GraphQL client (for productCreate).
+  Executing productCreate mutation (base product)...
+  NOTICE: Handle 'die-cut-vinyl-stickers-5862785777818' already exists. Attempting to fetch existing product...
+  NOTICE: Existing product options [] do not match template ['Quantity'].
+  Deleting existing product gid://shopify/Product/8052652933274 to recreate with correct structure...
+  Existing product deleted. Retrying creation...
+  SUCCESS: Product recreated. GID: gid://shopify/Product/15418889798007
+  Creating options and variants...
+DEBUG: Options input for productOptionsCreate: [
+  {
+    "name": "Quantity",
+    "values": [
+      {
+        "name": "5"
+      },
+      {
+        "name": "50"
+      },
+      {
+        "name": "100"
+      },
+      {
+        "name": "250"
+      },
+      {
+        "name": "500"
+      },
+      {
+        "name": "1000"
+      }
+    ]
+  }
+]
+DEBUG: Fetched existing options: [
+  {
+    "id": "gid://shopify/ProductOption/17859003384183",
+    "name": "Title",
+    "values": [
+      "Default Title"
+    ]
+  }
+]
+Step 1.5a-0: Deleting ALL existing variants from product gid://shopify/Product/15418889798007 to allow option updates.
+  Found 1 variants to delete.
+  Successfully deleted 1 variants.
+Step 1.5a-1: Deleting existing options from product gid://shopify/Product/15418889798007
+Successfully deleted option ID: gid://shopify/ProductOption/17859003384183
+Successfully deleted 1 existing option(s).
+Step 1.5b: Creating new options for product gid://shopify/Product/15418889798007 using productOptionsCreate: ['Quantity']
+DEBUG: productOptionsCreate mutation variables: {
+  "productId": "gid://shopify/Product/15418889798007",
+  "options": [
+    {
+      "name": "Quantity",
+      "values": [
+        {
+          "name": "5"
+        },
+        {
+          "name": "50"
+        },
+        {
+          "name": "100"
+        },
+        {
+          "name": "250"
+        },
+        {
+          "name": "500"
+        },
+        {
+          "name": "1000"
+        }
+      ]
+    }
+  ],
+  "variantStrategy": "CREATE"
+}
+DEBUG: productOptionsCreate product response (product.options): [
+  {
+    "id": "gid://shopify/ProductOption/17859003416951",
+    "name": "Quantity",
+    "values": [
+      "5",
+      "50",
+      "100",
+      "250",
+      "500",
+      "1000"
+    ]
+  }
+]
+Success: Product options created via productOptionsCreate. New options: [
+  {
+    "id": "gid://shopify/ProductOption/17859003416951",
+    "name": "Quantity",
+    "values": [
+      "5",
+      "50",
+      "100",
+      "250",
+      "500",
+      "1000"
+    ]
+  }
+]
+Variants after productOptionsCreate: [
+  {
+    "id": "gid://shopify/ProductVariant/56880596615543",
+    "title": "5"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880596648311",
+    "title": "50"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880596681079",
+    "title": "100"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880596713847",
+    "title": "250"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880596746615",
+    "title": "500"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880596779383",
+    "title": "1000"
+  }
+]
+First variant '5' (ID: gid://shopify/ProductVariant/56880596615543) appears to be auto-created by productOptionsCreate.
+No 'Default Title' variant found after productUpdate to delete.
+DEBUG: Part 4 - First variant was auto-created during productUpdate.
+Step 1.5 Succeeded: Options updated, variants created/handled, and default variant deleted/replaced.
+  Step 3: Updating variant details (prices, SKUs, weights)...
+DEBUG: variants_to_update payload (first 2): [
+  {
+    "id": "gid://shopify/ProductVariant/56880596615543",
+    "price": "8.00",
+    "sku": "DCVS-5862785777818-5",
+    "taxable": true,
+    "weight": 0.1,
+    "weightUnit": "POUNDS",
+    "inventoryItem": {
+      "tracked": true
+    },
+    "inventoryPolicy": "CONTINUE"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880596648311",
+    "price": "25.00",
+    "sku": "DCVS-5862785777818-50",
+    "taxable": true,
+    "weight": 0.1,
+    "weightUnit": "POUNDS",
+    "inventoryItem": {
+      "tracked": true
+    },
+    "inventoryPolicy": "CONTINUE"
+  }
+]
+  Running bulk update for price, taxable, inventory...
+  Successfully bulk updated 6 variants (price/inventory).
+  Sample updated variant: {'id': 'gid://shopify/ProductVariant/56880596615543', 'price': '8.00', 'inventoryItem': {'tracked': True}}
+  Running loop update for SKU and Weight...
+  Successfully updated SKU/Weight for 6 variants.
+  Fetched 1 media items for existing/created product.
+  Missing expected media: https://csbrandstores.s3.eu-north-1.amazonaws.com/5862785777818/_previews/White_5862785777818.png. Queuing for creation.
+  Found stale media (not in template): https://cdn.shopify.com/s/files/1/0562/9604/6746/files/White_5862785777818.png?v=1773661643. Queuing for deletion.
+  Deleting 1 stale media items...
+  Successfully deleted 1 stale media items.
+  Creating 1 new media items...
+  Successfully created 1 new media items.
+  Shopify session cleared by create_product_on_shopify.
+  Product GID: gid://shopify/Product/15418889798007
+  Variants created: 6
+  Media created: 1
+
+  Starting Step 2: Linking images to 6 variants...
+  Shopify session activated for GraphQL client (for variant image linking).
+  WARNING: Media source missing (PROCESSING?), added fallback key 'DEFAULT'.
+  Media GID map (for READY media) created with 1 items.
+  Available Media URLs:
+    - DEFAULT
+  Prepared bulk update for 6 variants.
+  SUCCESS: Bulk updated 6 variants with images.
+  Shopify session cleared by link_images_to_variants.
+  SUCCESS: All 6 variants successfully linked to images.
+  Image linking process completed successfully (or with partial success if media not ready).
+die-cut-vinyl-stickers product creation completed.
+------------------------------------
+------------------------------------
+Creating die-cut-holographic-stickers product...
+Attempting to create product using template 'die-cut-holographic-stickers' with ID '5862785777818'...
+Attempting to create product (with full variants) on Shopify using template: 'die-cut-holographic-stickers', ID: '5862785777818'
+  Fetching Shopify Location ID for inventory...
+  Using Shopify Location GID: gid://shopify/Location/64837845146
+  Shopify session activated for GraphQL client (for productCreate).
+  Executing productCreate mutation (base product)...
+  NOTICE: Handle 'die-cut-holographic-stickers-5862785777818' already exists. Attempting to fetch existing product...
+  NOTICE: Existing product options [] do not match template ['Quantity'].
+  Deleting existing product gid://shopify/Product/8052652966042 to recreate with correct structure...
+  Existing product deleted. Retrying creation...
+  SUCCESS: Product recreated. GID: gid://shopify/Product/15418889896311
+  Creating options and variants...
+DEBUG: Options input for productOptionsCreate: [
+  {
+    "name": "Quantity",
+    "values": [
+      {
+        "name": "5"
+      },
+      {
+        "name": "50"
+      },
+      {
+        "name": "100"
+      },
+      {
+        "name": "250"
+      },
+      {
+        "name": "500"
+      },
+      {
+        "name": "1000"
+      }
+    ]
+  }
+]
+DEBUG: Fetched existing options: [
+  {
+    "id": "gid://shopify/ProductOption/17859003548023",
+    "name": "Title",
+    "values": [
+      "Default Title"
+    ]
+  }
+]
+Step 1.5a-0: Deleting ALL existing variants from product gid://shopify/Product/15418889896311 to allow option updates.
+  Found 1 variants to delete.
+  Successfully deleted 1 variants.
+Step 1.5a-1: Deleting existing options from product gid://shopify/Product/15418889896311
+Successfully deleted option ID: gid://shopify/ProductOption/17859003548023
+Successfully deleted 1 existing option(s).
+Step 1.5b: Creating new options for product gid://shopify/Product/15418889896311 using productOptionsCreate: ['Quantity']
+DEBUG: productOptionsCreate mutation variables: {
+  "productId": "gid://shopify/Product/15418889896311",
+  "options": [
+    {
+      "name": "Quantity",
+      "values": [
+        {
+          "name": "5"
+        },
+        {
+          "name": "50"
+        },
+        {
+          "name": "100"
+        },
+        {
+          "name": "250"
+        },
+        {
+          "name": "500"
+        },
+        {
+          "name": "1000"
+        }
+      ]
+    }
+  ],
+  "variantStrategy": "CREATE"
+}
+DEBUG: productOptionsCreate product response (product.options): [
+  {
+    "id": "gid://shopify/ProductOption/17859003580791",
+    "name": "Quantity",
+    "values": [
+      "5",
+      "50",
+      "100",
+      "250",
+      "500",
+      "1000"
+    ]
+  }
+]
+Success: Product options created via productOptionsCreate. New options: [
+  {
+    "id": "gid://shopify/ProductOption/17859003580791",
+    "name": "Quantity",
+    "values": [
+      "5",
+      "50",
+      "100",
+      "250",
+      "500",
+      "1000"
+    ]
+  }
+]
+Variants after productOptionsCreate: [
+  {
+    "id": "gid://shopify/ProductVariant/56880597434743",
+    "title": "5"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880597467511",
+    "title": "50"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880597500279",
+    "title": "100"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880597533047",
+    "title": "250"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880597565815",
+    "title": "500"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880597598583",
+    "title": "1000"
+  }
+]
+First variant '5' (ID: gid://shopify/ProductVariant/56880597434743) appears to be auto-created by productOptionsCreate.
+No 'Default Title' variant found after productUpdate to delete.
+DEBUG: Part 4 - First variant was auto-created during productUpdate.
+Step 1.5 Succeeded: Options updated, variants created/handled, and default variant deleted/replaced.
+  Step 3: Updating variant details (prices, SKUs, weights)...
+DEBUG: variants_to_update payload (first 2): [
+  {
+    "id": "gid://shopify/ProductVariant/56880597434743",
+    "price": "9.00",
+    "sku": "DCHS-5862785777818-5",
+    "taxable": true,
+    "weight": 0.1,
+    "weightUnit": "POUNDS",
+    "inventoryItem": {
+      "tracked": true
+    },
+    "inventoryPolicy": "CONTINUE"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880597467511",
+    "price": "34.00",
+    "sku": "DCHS-5862785777818-50",
+    "taxable": true,
+    "weight": 0.1,
+    "weightUnit": "POUNDS",
+    "inventoryItem": {
+      "tracked": true
+    },
+    "inventoryPolicy": "CONTINUE"
+  }
+]
+  Running bulk update for price, taxable, inventory...
+  Successfully bulk updated 6 variants (price/inventory).
+  Sample updated variant: {'id': 'gid://shopify/ProductVariant/56880597434743', 'price': '9.00', 'inventoryItem': {'tracked': True}}
+  Running loop update for SKU and Weight...
+  Successfully updated SKU/Weight for 6 variants.
+  Fetched 1 media items for existing/created product.
+  Missing expected media: https://csbrandstores.s3.eu-north-1.amazonaws.com/5862785777818/_previews/Holographic_5862785777818.png. Queuing for creation.
+  Found stale media (not in template): https://cdn.shopify.com/s/files/1/0562/9604/6746/files/Holographic_5862785777818.png?v=1773661656. Queuing for deletion.
+  Deleting 1 stale media items...
+  Successfully deleted 1 stale media items.
+  Creating 1 new media items...
+  Successfully created 1 new media items.
+  Shopify session cleared by create_product_on_shopify.
+  Product GID: gid://shopify/Product/15418889896311
+  Variants created: 6
+  Media created: 1
+
+  Starting Step 2: Linking images to 6 variants...
+  Shopify session activated for GraphQL client (for variant image linking).
+  WARNING: Media source missing (PROCESSING?), added fallback key 'DEFAULT'.
+  Media GID map (for READY media) created with 1 items.
+  Available Media URLs:
+    - DEFAULT
+  Prepared bulk update for 6 variants.
+  SUCCESS: Bulk updated 6 variants with images.
+  Shopify session cleared by link_images_to_variants.
+  SUCCESS: All 6 variants successfully linked to images.
+  Image linking process completed successfully (or with partial success if media not ready).
+die-cut-holographic-stickers product creation completed.
+------------------------------------
+------------------------------------
+Creating die-cut-silver-stickers product...
+Attempting to create product using template 'die-cut-silver-stickers' with ID '5862785777818'...
+Attempting to create product (with full variants) on Shopify using template: 'die-cut-silver-stickers', ID: '5862785777818'
+  Fetching Shopify Location ID for inventory...
+  Using Shopify Location GID: gid://shopify/Location/64837845146
+  Shopify session activated for GraphQL client (for productCreate).
+  Executing productCreate mutation (base product)...
+  NOTICE: Handle 'die-cut-silver-stickers-5862785777818' already exists. Attempting to fetch existing product...
+  NOTICE: Existing product options [] do not match template ['Quantity'].
+  Deleting existing product gid://shopify/Product/8052653031578 to recreate with correct structure...
+  Existing product deleted. Retrying creation...
+  SUCCESS: Product recreated. GID: gid://shopify/Product/15418889994615
+  Creating options and variants...
+DEBUG: Options input for productOptionsCreate: [
+  {
+    "name": "Quantity",
+    "values": [
+      {
+        "name": "5"
+      },
+      {
+        "name": "50"
+      },
+      {
+        "name": "100"
+      },
+      {
+        "name": "250"
+      },
+      {
+        "name": "500"
+      },
+      {
+        "name": "1000"
+      }
+    ]
+  }
+]
+DEBUG: Fetched existing options: [
+  {
+    "id": "gid://shopify/ProductOption/17859003711863",
+    "name": "Title",
+    "values": [
+      "Default Title"
+    ]
+  }
+]
+Step 1.5a-0: Deleting ALL existing variants from product gid://shopify/Product/15418889994615 to allow option updates.
+  Found 1 variants to delete.
+  Successfully deleted 1 variants.
+Step 1.5a-1: Deleting existing options from product gid://shopify/Product/15418889994615
+Successfully deleted option ID: gid://shopify/ProductOption/17859003711863
+Successfully deleted 1 existing option(s).
+Step 1.5b: Creating new options for product gid://shopify/Product/15418889994615 using productOptionsCreate: ['Quantity']
+DEBUG: productOptionsCreate mutation variables: {
+  "productId": "gid://shopify/Product/15418889994615",
+  "options": [
+    {
+      "name": "Quantity",
+      "values": [
+        {
+          "name": "5"
+        },
+        {
+          "name": "50"
+        },
+        {
+          "name": "100"
+        },
+        {
+          "name": "250"
+        },
+        {
+          "name": "500"
+        },
+        {
+          "name": "1000"
+        }
+      ]
+    }
+  ],
+  "variantStrategy": "CREATE"
+}
+DEBUG: productOptionsCreate product response (product.options): [
+  {
+    "id": "gid://shopify/ProductOption/17859003744631",
+    "name": "Quantity",
+    "values": [
+      "5",
+      "50",
+      "100",
+      "250",
+      "500",
+      "1000"
+    ]
+  }
+]
+Success: Product options created via productOptionsCreate. New options: [
+  {
+    "id": "gid://shopify/ProductOption/17859003744631",
+    "name": "Quantity",
+    "values": [
+      "5",
+      "50",
+      "100",
+      "250",
+      "500",
+      "1000"
+    ]
+  }
+]
+Variants after productOptionsCreate: [
+  {
+    "id": "gid://shopify/ProductVariant/56880598122871",
+    "title": "5"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880598155639",
+    "title": "50"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880598188407",
+    "title": "100"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880598221175",
+    "title": "250"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880598253943",
+    "title": "500"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880598286711",
+    "title": "1000"
+  }
+]
+First variant '5' (ID: gid://shopify/ProductVariant/56880598122871) appears to be auto-created by productOptionsCreate.
+No 'Default Title' variant found after productUpdate to delete.
+DEBUG: Part 4 - First variant was auto-created during productUpdate.
+Step 1.5 Succeeded: Options updated, variants created/handled, and default variant deleted/replaced.
+  Step 3: Updating variant details (prices, SKUs, weights)...
+DEBUG: variants_to_update payload (first 2): [
+  {
+    "id": "gid://shopify/ProductVariant/56880598122871",
+    "price": "9.00",
+    "sku": "DCSS-5862785777818-5",
+    "taxable": true,
+    "weight": 0.1,
+    "weightUnit": "POUNDS",
+    "inventoryItem": {
+      "tracked": true
+    },
+    "inventoryPolicy": "CONTINUE"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880598155639",
+    "price": "34.00",
+    "sku": "DCSS-5862785777818-50",
+    "taxable": true,
+    "weight": 0.1,
+    "weightUnit": "POUNDS",
+    "inventoryItem": {
+      "tracked": true
+    },
+    "inventoryPolicy": "CONTINUE"
+  }
+]
+  Running bulk update for price, taxable, inventory...
+  Successfully bulk updated 6 variants (price/inventory).
+  Sample updated variant: {'id': 'gid://shopify/ProductVariant/56880598122871', 'price': '9.00', 'inventoryItem': {'tracked': True}}
+  Running loop update for SKU and Weight...
+  Successfully updated SKU/Weight for 6 variants.
+  Fetched 1 media items for existing/created product.
+  Missing expected media: https://csbrandstores.s3.eu-north-1.amazonaws.com/5862785777818/_previews/Silver_5862785777818.png. Queuing for creation.
+  Found stale media (not in template): https://cdn.shopify.com/s/files/1/0562/9604/6746/files/Silver_5862785777818.png?v=1773661667. Queuing for deletion.
+  Deleting 1 stale media items...
+  Successfully deleted 1 stale media items.
+  Creating 1 new media items...
+  Successfully created 1 new media items.
+  Shopify session cleared by create_product_on_shopify.
+  Product GID: gid://shopify/Product/15418889994615
+  Variants created: 6
+  Media created: 1
+
+  Starting Step 2: Linking images to 6 variants...
+  Shopify session activated for GraphQL client (for variant image linking).
+  WARNING: Media source missing (PROCESSING?), added fallback key 'DEFAULT'.
+  Media GID map (for READY media) created with 1 items.
+  Available Media URLs:
+    - DEFAULT
+  Prepared bulk update for 6 variants.
+  SUCCESS: Bulk updated 6 variants with images.
+  Shopify session cleared by link_images_to_variants.
+  SUCCESS: All 6 variants successfully linked to images.
+  Image linking process completed successfully (or with partial success if media not ready).
+die-cut-silver-stickers product creation completed.
+------------------------------------
+------------------------------------
+Creating die-cut-gold-stickers product...
+Attempting to create product using template 'die-cut-gold-stickers' with ID '5862785777818'...
+Attempting to create product (with full variants) on Shopify using template: 'die-cut-gold-stickers', ID: '5862785777818'
+  Fetching Shopify Location ID for inventory...
+  Using Shopify Location GID: gid://shopify/Location/64837845146
+  Shopify session activated for GraphQL client (for productCreate).
+  Executing productCreate mutation (base product)...
+  NOTICE: Handle 'die-cut-gold-stickers-5862785777818' already exists. Attempting to fetch existing product...
+  NOTICE: Existing product options [] do not match template ['Quantity'].
+  Deleting existing product gid://shopify/Product/8052653064346 to recreate with correct structure...
+  Existing product deleted. Retrying creation...
+  SUCCESS: Product recreated. GID: gid://shopify/Product/15418890027383
+  Creating options and variants...
+DEBUG: Options input for productOptionsCreate: [
+  {
+    "name": "Quantity",
+    "values": [
+      {
+        "name": "5"
+      },
+      {
+        "name": "50"
+      },
+      {
+        "name": "100"
+      },
+      {
+        "name": "250"
+      },
+      {
+        "name": "500"
+      },
+      {
+        "name": "1000"
+      }
+    ]
+  }
+]
+DEBUG: Fetched existing options: [
+  {
+    "id": "gid://shopify/ProductOption/17859003777399",
+    "name": "Title",
+    "values": [
+      "Default Title"
+    ]
+  }
+]
+Step 1.5a-0: Deleting ALL existing variants from product gid://shopify/Product/15418890027383 to allow option updates.
+  Found 1 variants to delete.
+  Successfully deleted 1 variants.
+Step 1.5a-1: Deleting existing options from product gid://shopify/Product/15418890027383
+Successfully deleted option ID: gid://shopify/ProductOption/17859003777399
+Successfully deleted 1 existing option(s).
+Step 1.5b: Creating new options for product gid://shopify/Product/15418890027383 using productOptionsCreate: ['Quantity']
+DEBUG: productOptionsCreate mutation variables: {
+  "productId": "gid://shopify/Product/15418890027383",
+  "options": [
+    {
+      "name": "Quantity",
+      "values": [
+        {
+          "name": "5"
+        },
+        {
+          "name": "50"
+        },
+        {
+          "name": "100"
+        },
+        {
+          "name": "250"
+        },
+        {
+          "name": "500"
+        },
+        {
+          "name": "1000"
+        }
+      ]
+    }
+  ],
+  "variantStrategy": "CREATE"
+}
+DEBUG: productOptionsCreate product response (product.options): [
+  {
+    "id": "gid://shopify/ProductOption/17859003810167",
+    "name": "Quantity",
+    "values": [
+      "5",
+      "50",
+      "100",
+      "250",
+      "500",
+      "1000"
+    ]
+  }
+]
+Success: Product options created via productOptionsCreate. New options: [
+  {
+    "id": "gid://shopify/ProductOption/17859003810167",
+    "name": "Quantity",
+    "values": [
+      "5",
+      "50",
+      "100",
+      "250",
+      "500",
+      "1000"
+    ]
+  }
+]
+Variants after productOptionsCreate: [
+  {
+    "id": "gid://shopify/ProductVariant/56880598319479",
+    "title": "5"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880598352247",
+    "title": "50"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880598385015",
+    "title": "100"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880598417783",
+    "title": "250"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880598450551",
+    "title": "500"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880598483319",
+    "title": "1000"
+  }
+]
+First variant '5' (ID: gid://shopify/ProductVariant/56880598319479) appears to be auto-created by productOptionsCreate.
+No 'Default Title' variant found after productUpdate to delete.
+DEBUG: Part 4 - First variant was auto-created during productUpdate.
+Step 1.5 Succeeded: Options updated, variants created/handled, and default variant deleted/replaced.
+  Step 3: Updating variant details (prices, SKUs, weights)...
+DEBUG: variants_to_update payload (first 2): [
+  {
+    "id": "gid://shopify/ProductVariant/56880598319479",
+    "price": "9.00",
+    "sku": "DCGS-5862785777818-5",
+    "taxable": true,
+    "weight": 0.1,
+    "weightUnit": "POUNDS",
+    "inventoryItem": {
+      "tracked": true
+    },
+    "inventoryPolicy": "CONTINUE"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880598352247",
+    "price": "34.00",
+    "sku": "DCGS-5862785777818-50",
+    "taxable": true,
+    "weight": 0.1,
+    "weightUnit": "POUNDS",
+    "inventoryItem": {
+      "tracked": true
+    },
+    "inventoryPolicy": "CONTINUE"
+  }
+]
+  Running bulk update for price, taxable, inventory...
+  Successfully bulk updated 6 variants (price/inventory).
+  Sample updated variant: {'id': 'gid://shopify/ProductVariant/56880598319479', 'price': '9.00', 'inventoryItem': {'tracked': True}}
+  Running loop update for SKU and Weight...
+  Successfully updated SKU/Weight for 6 variants.
+  Fetched 1 media items for existing/created product.
+  Missing expected media: https://csbrandstores.s3.eu-north-1.amazonaws.com/5862785777818/_previews/Gold_5862785777818.png. Queuing for creation.
+  Found stale media (not in template): https://cdn.shopify.com/s/files/1/0562/9604/6746/files/Gold_5862785777818.png?v=1773661682. Queuing for deletion.
+  Deleting 1 stale media items...
+  Successfully deleted 1 stale media items.
+  Creating 1 new media items...
+  Successfully created 1 new media items.
+  Shopify session cleared by create_product_on_shopify.
+  Product GID: gid://shopify/Product/15418890027383
+  Variants created: 6
+  Media created: 1
+
+  Starting Step 2: Linking images to 6 variants...
+  Shopify session activated for GraphQL client (for variant image linking).
+  WARNING: Media source missing (PROCESSING?), added fallback key 'DEFAULT'.
+  Media GID map (for READY media) created with 1 items.
+  Available Media URLs:
+    - DEFAULT
+  Prepared bulk update for 6 variants.
+  SUCCESS: Bulk updated 6 variants with images.
+  Shopify session cleared by link_images_to_variants.
+  SUCCESS: All 6 variants successfully linked to images.
+  Image linking process completed successfully (or with partial success if media not ready).
+die-cut-gold-stickers product creation completed.
+------------------------------------
+------------------------------------
+Creating die-cut-glitter-stickers product...
+Attempting to create product using template 'die-cut-glitter-stickers' with ID '5862785777818'...
+Attempting to create product (with full variants) on Shopify using template: 'die-cut-glitter-stickers', ID: '5862785777818'
+  Fetching Shopify Location ID for inventory...
+  Using Shopify Location GID: gid://shopify/Location/64837845146
+  Shopify session activated for GraphQL client (for productCreate).
+  Executing productCreate mutation (base product)...
+  NOTICE: Handle 'die-cut-glitter-stickers-5862785777818' already exists. Attempting to fetch existing product...
+  NOTICE: Existing product options [] do not match template ['Quantity'].
+  Deleting existing product gid://shopify/Product/8052653097114 to recreate with correct structure...
+  Existing product deleted. Retrying creation...
+  SUCCESS: Product recreated. GID: gid://shopify/Product/15418890060151
+  Creating options and variants...
+DEBUG: Options input for productOptionsCreate: [
+  {
+    "name": "Quantity",
+    "values": [
+      {
+        "name": "5"
+      },
+      {
+        "name": "50"
+      },
+      {
+        "name": "100"
+      },
+      {
+        "name": "250"
+      },
+      {
+        "name": "500"
+      },
+      {
+        "name": "1000"
+      }
+    ]
+  }
+]
+DEBUG: Fetched existing options: [
+  {
+    "id": "gid://shopify/ProductOption/17859003875703",
+    "name": "Title",
+    "values": [
+      "Default Title"
+    ]
+  }
+]
+Step 1.5a-0: Deleting ALL existing variants from product gid://shopify/Product/15418890060151 to allow option updates.
+  Found 1 variants to delete.
+  Successfully deleted 1 variants.
+Step 1.5a-1: Deleting existing options from product gid://shopify/Product/15418890060151
+Successfully deleted option ID: gid://shopify/ProductOption/17859003875703
+Successfully deleted 1 existing option(s).
+Step 1.5b: Creating new options for product gid://shopify/Product/15418890060151 using productOptionsCreate: ['Quantity']
+DEBUG: productOptionsCreate mutation variables: {
+  "productId": "gid://shopify/Product/15418890060151",
+  "options": [
+    {
+      "name": "Quantity",
+      "values": [
+        {
+          "name": "5"
+        },
+        {
+          "name": "50"
+        },
+        {
+          "name": "100"
+        },
+        {
+          "name": "250"
+        },
+        {
+          "name": "500"
+        },
+        {
+          "name": "1000"
+        }
+      ]
+    }
+  ],
+  "variantStrategy": "CREATE"
+}
+DEBUG: productOptionsCreate product response (product.options): [
+  {
+    "id": "gid://shopify/ProductOption/17859003908471",
+    "name": "Quantity",
+    "values": [
+      "5",
+      "50",
+      "100",
+      "250",
+      "500",
+      "1000"
+    ]
+  }
+]
+Success: Product options created via productOptionsCreate. New options: [
+  {
+    "id": "gid://shopify/ProductOption/17859003908471",
+    "name": "Quantity",
+    "values": [
+      "5",
+      "50",
+      "100",
+      "250",
+      "500",
+      "1000"
+    ]
+  }
+]
+Variants after productOptionsCreate: [
+  {
+    "id": "gid://shopify/ProductVariant/56880599302519",
+    "title": "5"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880599335287",
+    "title": "50"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880599368055",
+    "title": "100"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880599400823",
+    "title": "250"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880599433591",
+    "title": "500"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880599466359",
+    "title": "1000"
+  }
+]
+First variant '5' (ID: gid://shopify/ProductVariant/56880599302519) appears to be auto-created by productOptionsCreate.
+No 'Default Title' variant found after productUpdate to delete.
+DEBUG: Part 4 - First variant was auto-created during productUpdate.
+Step 1.5 Succeeded: Options updated, variants created/handled, and default variant deleted/replaced.
+  Step 3: Updating variant details (prices, SKUs, weights)...
+DEBUG: variants_to_update payload (first 2): [
+  {
+    "id": "gid://shopify/ProductVariant/56880599302519",
+    "price": "9.00",
+    "sku": "DCGLS-5862785777818-5",
+    "taxable": true,
+    "weight": 0.1,
+    "weightUnit": "POUNDS",
+    "inventoryItem": {
+      "tracked": true
+    },
+    "inventoryPolicy": "CONTINUE"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880599335287",
+    "price": "34.00",
+    "sku": "DCGLS-5862785777818-50",
+    "taxable": true,
+    "weight": 0.1,
+    "weightUnit": "POUNDS",
+    "inventoryItem": {
+      "tracked": true
+    },
+    "inventoryPolicy": "CONTINUE"
+  }
+]
+  Running bulk update for price, taxable, inventory...
+  Successfully bulk updated 6 variants (price/inventory).
+  Sample updated variant: {'id': 'gid://shopify/ProductVariant/56880599302519', 'price': '9.00', 'inventoryItem': {'tracked': True}}
+  Running loop update for SKU and Weight...
+  Successfully updated SKU/Weight for 6 variants.
+  Fetched 1 media items for existing/created product.
+  Missing expected media: https://csbrandstores.s3.eu-north-1.amazonaws.com/5862785777818/_previews/Sparkly_5862785777818.png. Queuing for creation.
+  Found stale media (not in template): https://cdn.shopify.com/s/files/1/0562/9604/6746/files/Sparkly_5862785777818.png?v=1773661694. Queuing for deletion.
+  Deleting 1 stale media items...
+  Successfully deleted 1 stale media items.
+  Creating 1 new media items...
+  Successfully created 1 new media items.
+  Shopify session cleared by create_product_on_shopify.
+  Product GID: gid://shopify/Product/15418890060151
+  Variants created: 6
+  Media created: 1
+
+  Starting Step 2: Linking images to 6 variants...
+  Shopify session activated for GraphQL client (for variant image linking).
+  WARNING: Media source missing (PROCESSING?), added fallback key 'DEFAULT'.
+  Media GID map (for READY media) created with 1 items.
+  Available Media URLs:
+    - DEFAULT
+  Prepared bulk update for 6 variants.
+  SUCCESS: Bulk updated 6 variants with images.
+  Shopify session cleared by link_images_to_variants.
+  SUCCESS: All 6 variants successfully linked to images.
+  Image linking process completed successfully (or with partial success if media not ready).
+die-cut-glitter-stickers product creation completed.
+------------------------------------
+All sticker products created successfully!
+create_all_stickers.sh completed successfully.
+--------------------------------------------------------
+Running create_hoodies.sh...
+Creating custom-hoodie product with ID 5862785777818...
+------------------------------------
+Attempting to create product using template 'custom-hoodie' with ID '5862785777818'...
+Attempting to create product (with full variants) on Shopify using template: 'custom-hoodie', ID: '5862785777818'
+  Fetching Shopify Location ID for inventory...
+  Using Shopify Location GID: gid://shopify/Location/64837845146
+  Shopify session activated for GraphQL client (for productCreate).
+  Executing productCreate mutation (base product)...
+  SUCCESS: Base Product 'Custom Hoodie' created. GID: gid://shopify/Product/15418890092919
+  Creating options and variants...
+DEBUG: Options input for productOptionsCreate: [
+  {
+    "name": "Colour",
+    "values": [
+      {
+        "name": "Black"
+      },
+      {
+        "name": "White"
+      },
+      {
+        "name": "Grey"
+      }
+    ]
+  },
+  {
+    "name": "Size",
+    "values": [
+      {
+        "name": "Age 3-4"
+      },
+      {
+        "name": "Age 5-6"
+      },
+      {
+        "name": "Age 7-8"
+      },
+      {
+        "name": "Age 9-11"
+      },
+      {
+        "name": "Age 12-14"
+      },
+      {
+        "name": "Adult Small"
+      },
+      {
+        "name": "Adult Medium"
+      },
+      {
+        "name": "Adult Large"
+      },
+      {
+        "name": "Adult XL"
+      },
+      {
+        "name": "Adult XXL"
+      }
+    ]
+  }
+]
+DEBUG: Fetched existing options: [
+  {
+    "id": "gid://shopify/ProductOption/17859004006775",
+    "name": "Title",
+    "values": [
+      "Default Title"
+    ]
+  }
+]
+Step 1.5a-0: Deleting ALL existing variants from product gid://shopify/Product/15418890092919 to allow option updates.
+  Found 1 variants to delete.
+  Successfully deleted 1 variants.
+Step 1.5a-1: Deleting existing options from product gid://shopify/Product/15418890092919
+Successfully deleted option ID: gid://shopify/ProductOption/17859004006775
+Successfully deleted 1 existing option(s).
+Step 1.5b: Creating new options for product gid://shopify/Product/15418890092919 using productOptionsCreate: ['Colour', 'Size']
+DEBUG: productOptionsCreate mutation variables: {
+  "productId": "gid://shopify/Product/15418890092919",
+  "options": [
+    {
+      "name": "Colour",
+      "values": [
+        {
+          "name": "Black"
+        },
+        {
+          "name": "White"
+        },
+        {
+          "name": "Grey"
+        }
+      ]
+    },
+    {
+      "name": "Size",
+      "values": [
+        {
+          "name": "Age 3-4"
+        },
+        {
+          "name": "Age 5-6"
+        },
+        {
+          "name": "Age 7-8"
+        },
+        {
+          "name": "Age 9-11"
+        },
+        {
+          "name": "Age 12-14"
+        },
+        {
+          "name": "Adult Small"
+        },
+        {
+          "name": "Adult Medium"
+        },
+        {
+          "name": "Adult Large"
+        },
+        {
+          "name": "Adult XL"
+        },
+        {
+          "name": "Adult XXL"
+        }
+      ]
+    }
+  ],
+  "variantStrategy": "CREATE"
+}
+DEBUG: productOptionsCreate product response (product.options): [
+  {
+    "id": "gid://shopify/ProductOption/17859004039543",
+    "name": "Colour",
+    "values": [
+      "Black",
+      "White",
+      "Grey"
+    ]
+  },
+  {
+    "id": "gid://shopify/ProductOption/17859004072311",
+    "name": "Size",
+    "values": [
+      "Age 3-4",
+      "Age 5-6",
+      "Age 7-8",
+      "Age 9-11",
+      "Age 12-14",
+      "Adult Small",
+      "Adult Medium",
+      "Adult Large",
+      "Adult XL",
+      "Adult XXL"
+    ]
+  }
+]
+Success: Product options created via productOptionsCreate. New options: [
+  {
+    "id": "gid://shopify/ProductOption/17859004039543",
+    "name": "Colour",
+    "values": [
+      "Black",
+      "White",
+      "Grey"
+    ]
+  },
+  {
+    "id": "gid://shopify/ProductOption/17859004072311",
+    "name": "Size",
+    "values": [
+      "Age 3-4",
+      "Age 5-6",
+      "Age 7-8",
+      "Age 9-11",
+      "Age 12-14",
+      "Adult Small",
+      "Adult Medium",
+      "Adult Large",
+      "Adult XL",
+      "Adult XXL"
+    ]
+  }
+]
+Variants after productOptionsCreate: [
+  {
+    "id": "gid://shopify/ProductVariant/56880599892343",
+    "title": "Black / Age 3-4"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880599925111",
+    "title": "Black / Age 5-6"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880599957879",
+    "title": "Black / Age 7-8"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880599990647",
+    "title": "Black / Age 9-11"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880600023415",
+    "title": "Black / Age 12-14"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880600056183",
+    "title": "Black / Adult Small"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880600088951",
+    "title": "Black / Adult Medium"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880600121719",
+    "title": "Black / Adult Large"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880600154487",
+    "title": "Black / Adult XL"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880600187255",
+    "title": "Black / Adult XXL"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880600220023",
+    "title": "White / Age 3-4"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880600252791",
+    "title": "White / Age 5-6"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880600285559",
+    "title": "White / Age 7-8"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880600318327",
+    "title": "White / Age 9-11"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880600351095",
+    "title": "White / Age 12-14"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880600383863",
+    "title": "White / Adult Small"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880600416631",
+    "title": "White / Adult Medium"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880600449399",
+    "title": "White / Adult Large"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880600482167",
+    "title": "White / Adult XL"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880600514935",
+    "title": "White / Adult XXL"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880600547703",
+    "title": "Grey / Age 3-4"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880600580471",
+    "title": "Grey / Age 5-6"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880600613239",
+    "title": "Grey / Age 7-8"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880600646007",
+    "title": "Grey / Age 9-11"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880600678775",
+    "title": "Grey / Age 12-14"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880600711543",
+    "title": "Grey / Adult Small"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880600744311",
+    "title": "Grey / Adult Medium"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880600777079",
+    "title": "Grey / Adult Large"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880600809847",
+    "title": "Grey / Adult XL"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880600842615",
+    "title": "Grey / Adult XXL"
+  }
+]
+First variant based on options 'Black' not found among auto-created variants after productOptionsCreate.
+No 'Default Title' variant found after productUpdate to delete.
+DEBUG: Part 4 - First variant was not auto-created by productUpdate. REST API in Step 2 should handle all variant creations.
+Step 1.5 Succeeded: Options updated, variants created/handled, and default variant deleted/replaced.
+  Step 3: Updating variant details (prices, SKUs, weights)...
+DEBUG: variants_to_update payload (first 2): [
+  {
+    "id": "gid://shopify/ProductVariant/56880599892343",
+    "price": "43.20",
+    "sku": "CSKINS_HOODIEBLACK_3-4",
+    "taxable": true,
+    "weight": 1.0,
+    "weightUnit": "POUNDS",
+    "inventoryItem": {
+      "tracked": true
+    },
+    "inventoryPolicy": "CONTINUE"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880599925111",
+    "price": "43.20",
+    "sku": "CSKINS_HOODIEBLACK_5-6",
+    "taxable": true,
+    "weight": 1.0,
+    "weightUnit": "POUNDS",
+    "inventoryItem": {
+      "tracked": true
+    },
+    "inventoryPolicy": "CONTINUE"
+  }
+]
+  Running bulk update for price, taxable, inventory...
+  Successfully bulk updated 30 variants (price/inventory).
+  Sample updated variant: {'id': 'gid://shopify/ProductVariant/56880599892343', 'price': '43.20', 'inventoryItem': {'tracked': True}}
+  Running loop update for SKU and Weight...
+  Successfully updated SKU/Weight for 30 variants.
+  Fetched 3 media items for existing/created product.
+  Missing expected media: https://csbrandstores.s3.eu-north-1.amazonaws.com/5862785777818/_previews/hoodie-black-5862785777818.png. Queuing for creation.
+  Missing expected media: https://csbrandstores.s3.eu-north-1.amazonaws.com/5862785777818/_previews/hoodie-white-5862785777818.png. Queuing for creation.
+  Missing expected media: https://csbrandstores.s3.eu-north-1.amazonaws.com/5862785777818/_previews/hoodie-grey-5862785777818.png. Queuing for creation.
+  Found stale media (not in template): https://cdn.shopify.com/s/files/1/0562/9604/6746/files/hoodie-black-5862785777818.png?v=1773661707. Queuing for deletion.
+  Found stale media (not in template): https://cdn.shopify.com/s/files/1/0562/9604/6746/files/hoodie-white-5862785777818.png?v=1773661707. Queuing for deletion.
+  Found stale media (not in template): https://cdn.shopify.com/s/files/1/0562/9604/6746/files/hoodie-grey-5862785777818.png?v=1773661707. Queuing for deletion.
+  Deleting 3 stale media items...
+  Successfully deleted 3 stale media items.
+  Creating 3 new media items...
+  Successfully created 3 new media items.
+  Shopify session cleared by create_product_on_shopify.
+  Product GID: gid://shopify/Product/15418890092919
+  Variants created: 30
+  Media created: 3
+
+  Starting Step 2: Linking images to 30 variants...
+  Shopify session activated for GraphQL client (for variant image linking).
+  WARNING: No media items found with IDs.
+  Media items received:
+    Item 0: ID=gid://shopify/MediaImage/69011944079735, Src=None, Status=UPLOADED
+    Item 1: ID=gid://shopify/MediaImage/69011944112503, Src=None, Status=UPLOADED
+    Item 2: ID=gid://shopify/MediaImage/69011944145271, Src=None, Status=UPLOADED
+  Media GID map (for READY media) created with 0 items.
+  Available Media URLs:
+  WARNING: No matching media originalSrc found in map for variant 'Black / Age 3-4' with colour 'black'.
+  WARNING: No matching media originalSrc found in map for variant 'Black / Age 5-6' with colour 'black'.
+  WARNING: No matching media originalSrc found in map for variant 'Black / Age 7-8' with colour 'black'.
+  WARNING: No matching media originalSrc found in map for variant 'Black / Age 9-11' with colour 'black'.
+  WARNING: No matching media originalSrc found in map for variant 'Black / Age 12-14' with colour 'black'.
+  WARNING: No matching media originalSrc found in map for variant 'Black / Adult Small' with colour 'black'.
+  WARNING: No matching media originalSrc found in map for variant 'Black / Adult Medium' with colour 'black'.
+  WARNING: No matching media originalSrc found in map for variant 'Black / Adult Large' with colour 'black'.
+  WARNING: No matching media originalSrc found in map for variant 'Black / Adult XL' with colour 'black'.
+  WARNING: No matching media originalSrc found in map for variant 'Black / Adult XXL' with colour 'black'.
+  WARNING: No matching media originalSrc found in map for variant 'White / Age 3-4' with colour 'white'.
+  WARNING: No matching media originalSrc found in map for variant 'White / Age 5-6' with colour 'white'.
+  WARNING: No matching media originalSrc found in map for variant 'White / Age 7-8' with colour 'white'.
+  WARNING: No matching media originalSrc found in map for variant 'White / Age 9-11' with colour 'white'.
+  WARNING: No matching media originalSrc found in map for variant 'White / Age 12-14' with colour 'white'.
+  WARNING: No matching media originalSrc found in map for variant 'White / Adult Small' with colour 'white'.
+  WARNING: No matching media originalSrc found in map for variant 'White / Adult Medium' with colour 'white'.
+  WARNING: No matching media originalSrc found in map for variant 'White / Adult Large' with colour 'white'.
+  WARNING: No matching media originalSrc found in map for variant 'White / Adult XL' with colour 'white'.
+  WARNING: No matching media originalSrc found in map for variant 'White / Adult XXL' with colour 'white'.
+  WARNING: No matching media originalSrc found in map for variant 'Grey / Age 3-4' with colour 'grey'.
+  WARNING: No matching media originalSrc found in map for variant 'Grey / Age 5-6' with colour 'grey'.
+  WARNING: No matching media originalSrc found in map for variant 'Grey / Age 7-8' with colour 'grey'.
+  WARNING: No matching media originalSrc found in map for variant 'Grey / Age 9-11' with colour 'grey'.
+  WARNING: No matching media originalSrc found in map for variant 'Grey / Age 12-14' with colour 'grey'.
+  WARNING: No matching media originalSrc found in map for variant 'Grey / Adult Small' with colour 'grey'.
+  WARNING: No matching media originalSrc found in map for variant 'Grey / Adult Medium' with colour 'grey'.
+  WARNING: No matching media originalSrc found in map for variant 'Grey / Adult Large' with colour 'grey'.
+  WARNING: No matching media originalSrc found in map for variant 'Grey / Adult XL' with colour 'grey'.
+  WARNING: No matching media originalSrc found in map for variant 'Grey / Adult XXL' with colour 'grey'.
+  No variants were matched to images. Skipping update.
+  ERROR during image linking process.
+------------------------------------
+custom-hoodie product creation completed.
+Hoodie product created successfully!
+create_hoodies.sh completed successfully.
+--------------------------------------------------------
+Running create_misc_items.sh...
+Creating all miscellaneous item products with ID 5862785777818...
+------------------------------------
+Creating custom-white-mug product...
+Attempting to create product using template 'custom-white-mug' with ID '5862785777818'...
+Attempting to create product (with full variants) on Shopify using template: 'custom-white-mug', ID: '5862785777818'
+  Fetching Shopify Location ID for inventory...
+  Using Shopify Location GID: gid://shopify/Location/64837845146
+  Shopify session activated for GraphQL client (for productCreate).
+  Executing productCreate mutation (base product)...
+  SUCCESS: Base Product 'Custom Mug' created. GID: gid://shopify/Product/15418890223991
+  Creating options and variants...
+DEBUG: Options input for productOptionsCreate: [
+  {
+    "name": "Quantity",
+    "values": [
+      {
+        "name": "1"
+      },
+      {
+        "name": "6"
+      },
+      {
+        "name": "6 (individually boxed)"
+      },
+      {
+        "name": "36"
+      },
+      {
+        "name": "36 (individually boxed)"
+      },
+      {
+        "name": "72"
+      },
+      {
+        "name": "72 (individually boxed)"
+      }
+    ]
+  }
+]
+DEBUG: Fetched existing options: [
+  {
+    "id": "gid://shopify/ProductOption/17859004203383",
+    "name": "Title",
+    "values": [
+      "Default Title"
+    ]
+  }
+]
+Step 1.5a-0: Deleting ALL existing variants from product gid://shopify/Product/15418890223991 to allow option updates.
+  Found 1 variants to delete.
+  Successfully deleted 1 variants.
+Step 1.5a-1: Deleting existing options from product gid://shopify/Product/15418890223991
+Successfully deleted option ID: gid://shopify/ProductOption/17859004203383
+Successfully deleted 1 existing option(s).
+Step 1.5b: Creating new options for product gid://shopify/Product/15418890223991 using productOptionsCreate: ['Quantity']
+DEBUG: productOptionsCreate mutation variables: {
+  "productId": "gid://shopify/Product/15418890223991",
+  "options": [
+    {
+      "name": "Quantity",
+      "values": [
+        {
+          "name": "1"
+        },
+        {
+          "name": "6"
+        },
+        {
+          "name": "6 (individually boxed)"
+        },
+        {
+          "name": "36"
+        },
+        {
+          "name": "36 (individually boxed)"
+        },
+        {
+          "name": "72"
+        },
+        {
+          "name": "72 (individually boxed)"
+        }
+      ]
+    }
+  ],
+  "variantStrategy": "CREATE"
+}
+DEBUG: productOptionsCreate product response (product.options): [
+  {
+    "id": "gid://shopify/ProductOption/17859004268919",
+    "name": "Quantity",
+    "values": [
+      "1",
+      "6",
+      "6 (individually boxed)",
+      "36",
+      "36 (individually boxed)",
+      "72",
+      "72 (individually boxed)"
+    ]
+  }
+]
+Success: Product options created via productOptionsCreate. New options: [
+  {
+    "id": "gid://shopify/ProductOption/17859004268919",
+    "name": "Quantity",
+    "values": [
+      "1",
+      "6",
+      "6 (individually boxed)",
+      "36",
+      "36 (individually boxed)",
+      "72",
+      "72 (individually boxed)"
+    ]
+  }
+]
+Variants after productOptionsCreate: [
+  {
+    "id": "gid://shopify/ProductVariant/56880601039223",
+    "title": "1"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880601104759",
+    "title": "6"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880601137527",
+    "title": "6 (individually boxed)"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880601170295",
+    "title": "36"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880601203063",
+    "title": "36 (individually boxed)"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880601235831",
+    "title": "72"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880601268599",
+    "title": "72 (individually boxed)"
+  }
+]
+First variant '1' (ID: gid://shopify/ProductVariant/56880601039223) appears to be auto-created by productOptionsCreate.
+No 'Default Title' variant found after productUpdate to delete.
+DEBUG: Part 4 - First variant was auto-created during productUpdate.
+Step 1.5 Succeeded: Options updated, variants created/handled, and default variant deleted/replaced.
+  Step 3: Updating variant details (prices, SKUs, weights)...
+DEBUG: variants_to_update payload (first 2): [
+  {
+    "id": "gid://shopify/ProductVariant/56880601039223",
+    "price": "9.99",
+    "sku": "CSKINS_MUG_1",
+    "taxable": true,
+    "weight": 0.8,
+    "weightUnit": "POUNDS",
+    "inventoryItem": {
+      "tracked": true
+    },
+    "inventoryPolicy": "CONTINUE"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880601104759",
+    "price": "45.00",
+    "sku": "CSKINS_MUG_6",
+    "taxable": true,
+    "weight": 4.8,
+    "weightUnit": "POUNDS",
+    "inventoryItem": {
+      "tracked": true
+    },
+    "inventoryPolicy": "CONTINUE"
+  }
+]
+  Running bulk update for price, taxable, inventory...
+  Successfully bulk updated 7 variants (price/inventory).
+  Sample updated variant: {'id': 'gid://shopify/ProductVariant/56880601039223', 'price': '9.99', 'inventoryItem': {'tracked': True}}
+  Running loop update for SKU and Weight...
+  Successfully updated SKU/Weight for 7 variants.
+  Fetched 1 media items for existing/created product.
+  Missing expected media: https://csbrandstores.s3.eu-north-1.amazonaws.com/5862785777818/_previews/white_mug-5862785777818.png. Queuing for creation.
+  Found stale media (not in template): https://cdn.shopify.com/s/files/1/0562/9604/6746/files/white_mug-5862785777818.png?v=1773661720. Queuing for deletion.
+  Deleting 1 stale media items...
+  Successfully deleted 1 stale media items.
+  Creating 1 new media items...
+  Successfully created 1 new media items.
+  Shopify session cleared by create_product_on_shopify.
+  Product GID: gid://shopify/Product/15418890223991
+  Variants created: 7
+  Media created: 1
+
+  Starting Step 2: Linking images to 7 variants...
+  Shopify session activated for GraphQL client (for variant image linking).
+  WARNING: Media source missing (PROCESSING?), added fallback key 'DEFAULT'.
+  Media GID map (for READY media) created with 1 items.
+  Available Media URLs:
+    - DEFAULT
+  Prepared bulk update for 7 variants.
+  SUCCESS: Bulk updated 7 variants with images.
+  Shopify session cleared by link_images_to_variants.
+  SUCCESS: All 7 variants successfully linked to images.
+  Image linking process completed successfully (or with partial success if media not ready).
+custom-white-mug product creation completed.
+------------------------------------
+------------------------------------
+Creating custom-bottle-opener product...
+Attempting to create product using template 'custom-bottle-opener' with ID '5862785777818'...
+Attempting to create product (with full variants) on Shopify using template: 'custom-bottle-opener', ID: '5862785777818'
+  Fetching Shopify Location ID for inventory...
+  Using Shopify Location GID: gid://shopify/Location/64837845146
+  Shopify session activated for GraphQL client (for productCreate).
+  Executing productCreate mutation (base product)...
+  SUCCESS: Base Product 'Bottle opener' created. GID: gid://shopify/Product/15418890355063
+  Creating options and variants...
+DEBUG: Options input for productOptionsCreate: [
+  {
+    "name": "Quantity",
+    "values": [
+      {
+        "name": "1"
+      },
+      {
+        "name": "5"
+      },
+      {
+        "name": "25"
+      },
+      {
+        "name": "100"
+      }
+    ]
+  }
+]
+DEBUG: Fetched existing options: [
+  {
+    "id": "gid://shopify/ProductOption/17859004465527",
+    "name": "Title",
+    "values": [
+      "Default Title"
+    ]
+  }
+]
+Step 1.5a-0: Deleting ALL existing variants from product gid://shopify/Product/15418890355063 to allow option updates.
+  Found 1 variants to delete.
+  Successfully deleted 1 variants.
+Step 1.5a-1: Deleting existing options from product gid://shopify/Product/15418890355063
+Successfully deleted option ID: gid://shopify/ProductOption/17859004465527
+Successfully deleted 1 existing option(s).
+Step 1.5b: Creating new options for product gid://shopify/Product/15418890355063 using productOptionsCreate: ['Quantity']
+DEBUG: productOptionsCreate mutation variables: {
+  "productId": "gid://shopify/Product/15418890355063",
+  "options": [
+    {
+      "name": "Quantity",
+      "values": [
+        {
+          "name": "1"
+        },
+        {
+          "name": "5"
+        },
+        {
+          "name": "25"
+        },
+        {
+          "name": "100"
+        }
+      ]
+    }
+  ],
+  "variantStrategy": "CREATE"
+}
+DEBUG: productOptionsCreate product response (product.options): [
+  {
+    "id": "gid://shopify/ProductOption/17859004498295",
+    "name": "Quantity",
+    "values": [
+      "1",
+      "5",
+      "25",
+      "100"
+    ]
+  }
+]
+Success: Product options created via productOptionsCreate. New options: [
+  {
+    "id": "gid://shopify/ProductOption/17859004498295",
+    "name": "Quantity",
+    "values": [
+      "1",
+      "5",
+      "25",
+      "100"
+    ]
+  }
+]
+Variants after productOptionsCreate: [
+  {
+    "id": "gid://shopify/ProductVariant/56880601825655",
+    "title": "1"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880601858423",
+    "title": "5"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880601891191",
+    "title": "25"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880601923959",
+    "title": "100"
+  }
+]
+First variant '1' (ID: gid://shopify/ProductVariant/56880601825655) appears to be auto-created by productOptionsCreate.
+No 'Default Title' variant found after productUpdate to delete.
+DEBUG: Part 4 - First variant was auto-created during productUpdate.
+Step 1.5 Succeeded: Options updated, variants created/handled, and default variant deleted/replaced.
+  Step 3: Updating variant details (prices, SKUs, weights)...
+DEBUG: variants_to_update payload (first 2): [
+  {
+    "id": "gid://shopify/ProductVariant/56880601825655",
+    "price": "6.00",
+    "sku": "CSKINS_BOTTLEOPENER_1",
+    "taxable": true,
+    "weight": 0.2,
+    "weightUnit": "POUNDS",
+    "inventoryItem": {
+      "tracked": true
+    },
+    "inventoryPolicy": "CONTINUE"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/56880601858423",
+    "price": "24.00",
+    "sku": "CSKINS_BOTTLEOPENER_5",
+    "taxable": true,
+    "weight": 1.0,
+    "weightUnit": "POUNDS",
+    "inventoryItem": {
+      "tracked": true
+    },
+    "inventoryPolicy": "CONTINUE"
+  }
+]
+  Running bulk update for price, taxable, inventory...
+  Successfully bulk updated 4 variants (price/inventory).
+  Sample updated variant: {'id': 'gid://shopify/ProductVariant/56880601825655', 'price': '6.00', 'inventoryItem': {'tracked': True}}
+  Running loop update for SKU and Weight...
+  Successfully updated SKU/Weight for 4 variants.
+  Fetched 1 media items for existing/created product.
+  Missing expected media: https://csbrandstores.s3.eu-north-1.amazonaws.com/5862785777818/_previews/bottle_opener-5862785777818.png. Queuing for creation.
+  Found stale media (not in template): https://cdn.shopify.com/s/files/1/0562/9604/6746/files/bottle_opener-5862785777818.png?v=1773661731. Queuing for deletion.
+  Deleting 1 stale media items...
+  Successfully deleted 1 stale media items.
+  Creating 1 new media items...
+  Successfully created 1 new media items.
+  Shopify session cleared by create_product_on_shopify.
+  Product GID: gid://shopify/Product/15418890355063
+  Variants created: 4
+  Media created: 1
+
+  Starting Step 2: Linking images to 4 variants...
+  Shopify session activated for GraphQL client (for variant image linking).
+  WARNING: Media source missing (PROCESSING?), added fallback key 'DEFAULT'.
+  Media GID map (for READY media) created with 1 items.
+  Available Media URLs:
+    - DEFAULT
+  Prepared bulk update for 4 variants.
+  SUCCESS: Bulk updated 4 variants with images.
+  Shopify session cleared by link_images_to_variants.
+  SUCCESS: All 4 variants successfully linked to images.
+  Image linking process completed successfully (or with partial success if media not ready).
+custom-bottle-opener product creation completed.
+------------------------------------
+All miscellaneous item products created successfully!
+create_misc_items.sh completed successfully.
+--------------------------------------------------------
+All products created successfully!

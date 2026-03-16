@@ -76,7 +76,7 @@ def init_db():
     # Try to pull latest changes on init
     sync_pull()
 
-def add_store(customer_id, url, email, first_name, last_name, band_name, date_live=None):
+def add_store(customer_id, url, email, first_name, last_name, band_name, date_live=None, customer_emailed=False):
     # Pull latest before adding to avoid conflicts
     sync_pull()
     
@@ -90,6 +90,10 @@ def add_store(customer_id, url, email, first_name, last_name, band_name, date_li
     if date_live is None:
         date_live = datetime.date.today().strftime('%Y-%m-%d')
     
+    # Ensure first_name is title case
+    if first_name:
+        first_name = first_name.title()
+
     new_store = {
         'customer_id': customer_id,
         'url': url,
@@ -97,7 +101,8 @@ def add_store(customer_id, url, email, first_name, last_name, band_name, date_li
         'first_name': first_name,
         'last_name': last_name,
         'band_name': band_name,
-        'date_live': date_live
+        'date_live': date_live,
+        'customer_emailed': customer_emailed
     }
     
     data.append(new_store)
@@ -126,6 +131,12 @@ def add_stores_bulk(stores_list):
             
         if not store.get('date_live'):
             store['date_live'] = datetime.date.today().strftime('%Y-%m-%d')
+            
+        if store.get('first_name'):
+            store['first_name'] = store['first_name'].title()
+            
+        if 'customer_emailed' not in store:
+            store['customer_emailed'] = False # Default to False for bulk adds unless specified
             
         data.append(store)
         existing_ids.add(store['customer_id'])
