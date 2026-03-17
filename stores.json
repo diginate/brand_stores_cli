@@ -15325,7 +15325,7 @@
         "email": "pete38dd@hotmail.com",
         "first_name": "Pete",
         "last_name": "day",
-        "band_name": "",
+        "band_name": "The Nooks",
         "date_live": "2026-03-17",
         "customer_emailed": false
     },
@@ -15335,7 +15335,7 @@
         "email": "mitchell@humphreys-online.co.uk",
         "first_name": "Mitchell",
         "last_name": "Humphreys",
-        "band_name": "",
+        "band_name": "BCDC",
         "date_live": "2026-03-17",
         "customer_emailed": false
     },
@@ -15347,7 +15347,7 @@
         "last_name": "Braden",
         "band_name": "",
         "date_live": "2026-03-17",
-        "customer_emailed": false
+        "customer_emailed": "Do not contact"
     },
     {
         "customer_id": "5862801113242",
@@ -15367,7 +15367,7 @@
         "last_name": "Feekery",
         "band_name": "",
         "date_live": "2026-03-17",
-        "customer_emailed": false
+        "customer_emailed": "Do not contact"
     },
     {
         "customer_id": "5863070793882",
@@ -15377,7 +15377,7 @@
         "last_name": "Bird",
         "band_name": "",
         "date_live": "2026-03-17",
-        "customer_emailed": false
+        "customer_emailed": "Do not contact"
     },
     {
         "customer_id": "5863059390618",
@@ -15387,7 +15387,7 @@
         "last_name": "Dourado",
         "band_name": "",
         "date_live": "2026-03-17",
-        "customer_emailed": false
+        "customer_emailed": "Do not contact"
     },
     {
         "customer_id": "5863057391770",
@@ -15395,9 +15395,9 @@
         "email": "dean@owl-live.com",
         "first_name": "Dean",
         "last_name": "Williamson",
-        "band_name": "",
+        "band_name": "Spotlight Awards",
         "date_live": "2026-03-17",
-        "customer_emailed": false
+        "customer_emailed": "Do not contact"
     },
     {
         "customer_id": "5863048052890",
@@ -15407,7 +15407,7 @@
         "last_name": "Guy",
         "band_name": "",
         "date_live": "2026-03-17",
-        "customer_emailed": false
+        "customer_emailed": "Do not contact"
     },
     {
         "customer_id": "5863029112986",
@@ -15417,7 +15417,7 @@
         "last_name": "Johnson",
         "band_name": "",
         "date_live": "2026-03-17",
-        "customer_emailed": false
+        "customer_emailed": "Do not contact"
     },
     {
         "customer_id": "5863009648794",
@@ -15427,7 +15427,7 @@
         "last_name": "Kemp",
         "band_name": "",
         "date_live": "2026-03-17",
-        "customer_emailed": false
+        "customer_emailed": "Do not contact"
     },
     {
         "customer_id": "5863006339226",
@@ -15437,7 +15437,7 @@
         "last_name": "Bowler",
         "band_name": "",
         "date_live": "2026-03-17",
-        "customer_emailed": false
+        "customer_emailed": "Do not contact"
     },
     {
         "customer_id": "5862967247002",
@@ -15447,7 +15447,7 @@
         "last_name": "Paddon",
         "band_name": "",
         "date_live": "2026-03-17",
-        "customer_emailed": false
+        "customer_emailed": "Do not contact"
     },
     {
         "customer_id": "5862881099930",
@@ -15457,7 +15457,7 @@
         "last_name": "Thornton",
         "band_name": "",
         "date_live": "2026-03-17",
-        "customer_emailed": false
+        "customer_emailed": "Do not contact"
     },
     {
         "customer_id": "5862854099098",
@@ -15467,7 +15467,7 @@
         "last_name": "Arnott",
         "band_name": "",
         "date_live": "2026-03-17",
-        "customer_emailed": false
+        "customer_emailed": "Do not contact"
     },
     {
         "customer_id": "5865077670042",
@@ -15477,7 +15477,7 @@
         "last_name": "Brotherston",
         "band_name": "",
         "date_live": "2026-03-17",
-        "customer_emailed": false
+        "customer_emailed": "Do not contact"
     },
     {
         "customer_id": "5865076490394",
@@ -15487,7 +15487,7 @@
         "last_name": "R.Muller",
         "band_name": "",
         "date_live": "2026-03-17",
-        "customer_emailed": false
+        "customer_emailed": "Do not contact"
     },
     {
         "customer_id": "5865071083674",
@@ -15497,7 +15497,7 @@
         "last_name": "Baker",
         "band_name": "",
         "date_live": "2026-03-17",
-        "customer_emailed": false
+        "customer_emailed": "Do not contact"
     },
     {
         "customer_id": "5865052635290",
@@ -15507,7 +15507,7 @@
         "last_name": "Lear",
         "band_name": "",
         "date_live": "2026-03-17",
-        "customer_emailed": false
+        "customer_emailed": "Do not contact"
     },
     {
         "customer_id": "5865049063578",
@@ -15517,7 +15517,7 @@
         "last_name": "alessandro",
         "band_name": "",
         "date_live": "2026-03-17",
-        "customer_emailed": false
+        "customer_emailed": "Do not contact"
     },
     {
         "customer_id": "5864986149018",
@@ -15527,7 +15527,7 @@
         "last_name": "Alcorn",
         "band_name": "",
         "date_live": "2026-03-17",
-        "customer_emailed": false
+        "customer_emailed": "Do not contact"
     },
     {
         "customer_id": "5863268155546",
@@ -15537,7 +15537,7 @@
         "last_name": "Thistlethwaite",
         "band_name": "",
         "date_live": "2026-03-17",
-        "customer_emailed": false
+        "customer_emailed": "Do not contact"
     },
     {
         "customer_id": "5863258718362",
@@ -15547,7 +15547,7 @@
         "last_name": "Walters",
         "band_name": "",
         "date_live": "2026-03-17",
-        "customer_emailed": false
+        "customer_emailed": "Do not contact"
     },
     {
         "customer_id": "5863221461146",
@@ -15557,7 +15557,7 @@
         "last_name": "Campbell",
         "band_name": "",
         "date_live": "2026-03-17",
-        "customer_emailed": false
+        "customer_emailed": "Do not contact"
     },
     {
         "customer_id": "5863141802138",
@@ -15567,7 +15567,7 @@
         "last_name": "Makin",
         "band_name": "",
         "date_live": "2026-03-17",
-        "customer_emailed": false
+        "customer_emailed": "false"
     },
     {
         "customer_id": "5863129546906",
@@ -15577,7 +15577,7 @@
         "last_name": "fearon",
         "band_name": "",
         "date_live": "2026-03-17",
-        "customer_emailed": false
+        "customer_emailed": "Do not contact"
     },
     {
         "customer_id": "6000429334682",
@@ -15587,7 +15587,7 @@
         "last_name": "Middleton",
         "band_name": "",
         "date_live": "2026-03-17",
-        "customer_emailed": false
+        "customer_emailed": "Do not contact"
     },
     {
         "customer_id": "6135019602074",
@@ -15597,7 +15597,7 @@
         "last_name": "Lewis",
         "band_name": "",
         "date_live": "2026-03-17",
-        "customer_emailed": false
+        "customer_emailed": "Do not contact"
     },
     {
         "customer_id": "6134988865690",
@@ -15607,7 +15607,7 @@
         "last_name": "Blain",
         "band_name": "",
         "date_live": "2026-03-17",
-        "customer_emailed": false
+        "customer_emailed": "Do not contact"
     },
     {
         "customer_id": "6134768959642",
@@ -15617,7 +15617,7 @@
         "last_name": "Birkett",
         "band_name": "",
         "date_live": "2026-03-17",
-        "customer_emailed": false
+        "customer_emailed": "Do not contact"
     },
     {
         "customer_id": "6115640934554",
@@ -15627,7 +15627,7 @@
         "last_name": "Heaney",
         "band_name": "",
         "date_live": "2026-03-17",
-        "customer_emailed": false
+        "customer_emailed": "Do not contact"
     },
     {
         "customer_id": "6114069479578",
@@ -15637,7 +15637,7 @@
         "last_name": "Foster",
         "band_name": "",
         "date_live": "2026-03-17",
-        "customer_emailed": false
+        "customer_emailed": "Do not contact"
     },
     {
         "customer_id": "6096300343450",
@@ -15647,7 +15647,7 @@
         "last_name": "blow",
         "band_name": "",
         "date_live": "2026-03-17",
-        "customer_emailed": false
+        "customer_emailed": "Do not contact"
     },
     {
         "customer_id": "6050503983258",
@@ -15657,17 +15657,7 @@
         "last_name": "Jons",
         "band_name": "",
         "date_live": "2026-03-17",
-        "customer_emailed": false
-    },
-    {
-        "customer_id": "6034835767450",
-        "url": "https://customskins.co.uk/collections/6034835767450",
-        "email": "funkyinfo@aol.com",
-        "first_name": "Emily",
-        "last_name": "ONeill",
-        "band_name": "",
-        "date_live": "2026-03-17",
-        "customer_emailed": false
+        "customer_emailed": "Do not contact"
     },
     {
         "customer_id": "6026267885722",
@@ -16815,6 +16805,16 @@
         "email": "energisedperformance@gmail.com",
         "first_name": "Miss",
         "last_name": "Ingleby",
+        "band_name": "",
+        "date_live": "2026-03-17",
+        "customer_emailed": false
+    },
+    {
+        "customer_id": "6034835767450",
+        "url": "https://customskins.co.uk/collections/6034835767450",
+        "email": "funkyinfo@aol.com",
+        "first_name": "Emily",
+        "last_name": "ONeill",
         "band_name": "",
         "date_live": "2026-03-17",
         "customer_emailed": false
