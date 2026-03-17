@@ -15878,5 +15878,15 @@
         "band_name": "",
         "date_live": "2026-03-17",
         "customer_emailed": false
+    },
+    {
+        "customer_id": "6283730321562",
+        "url": "https://customskins.co.uk/collections/6283730321562",
+        "email": "pete@petewrightdrums.com",
+        "first_name": "Pete",
+        "last_name": "Wright",
+        "band_name": "",
+        "date_live": "2026-03-17",
+        "customer_emailed": false
     }
 ]
