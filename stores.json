@@ -15357,7 +15357,7 @@
         "last_name": "richardson",
         "band_name": "",
         "date_live": "2026-03-17",
-        "customer_emailed": false
+        "customer_emailed": "Do not contact"
     },
     {
         "customer_id": "5862795608218",
@@ -15805,66 +15805,6 @@
         "email": "pearlsweddingband@gmail.com",
         "first_name": "Alec",
         "last_name": "Noonan",
-        "band_name": "",
-        "date_live": "2026-03-17",
-        "customer_emailed": false
-    },
-    {
-        "customer_id": "6162658263194",
-        "url": "https://customskins.co.uk/collections/6162658263194",
-        "email": "dave@dp-touring.com",
-        "first_name": "Dave",
-        "last_name": "Palmer",
-        "band_name": "",
-        "date_live": "2026-03-17",
-        "customer_emailed": false
-    },
-    {
-        "customer_id": "6147946872986",
-        "url": "https://customskins.co.uk/collections/6147946872986",
-        "email": "dh@20-db.com",
-        "first_name": "Donovan",
-        "last_name": "Hepburn",
-        "band_name": "",
-        "date_live": "2026-03-17",
-        "customer_emailed": false
-    },
-    {
-        "customer_id": "6147938222234",
-        "url": "https://customskins.co.uk/collections/6147938222234",
-        "email": "simonjamesellis21@gmail.com",
-        "first_name": "Simon",
-        "last_name": "Ellis",
-        "band_name": "",
-        "date_live": "2026-03-17",
-        "customer_emailed": false
-    },
-    {
-        "customer_id": "6147568763034",
-        "url": "https://customskins.co.uk/collections/6147568763034",
-        "email": "parisi.andrew@gmail.com",
-        "first_name": "Amy",
-        "last_name": "Taylor",
-        "band_name": "",
-        "date_live": "2026-03-17",
-        "customer_emailed": false
-    },
-    {
-        "customer_id": "6144604176538",
-        "url": "https://customskins.co.uk/collections/6144604176538",
-        "email": "nick@lookoutkid.com",
-        "first_name": "Nicholas",
-        "last_name": "O'Byrne",
-        "band_name": "",
-        "date_live": "2026-03-17",
-        "customer_emailed": false
-    },
-    {
-        "customer_id": "6144503021722",
-        "url": "https://customskins.co.uk/collections/6144503021722",
-        "email": "lehawkboy@hotmail.com",
-        "first_name": "Richard",
-        "last_name": "Davies",
         "band_name": "",
         "date_live": "2026-03-17",
         "customer_emailed": false
