@@ -15320,53 +15320,13 @@
         "customer_emailed": true
     },
     {
-        "customer_id": "5862801113242",
-        "url": "https://customskins.co.uk/collections/5862801113242",
-        "email": "bonzzo@mac.com",
-        "first_name": "Mark",
-        "last_name": "richardson",
-        "band_name": "",
-        "date_live": "2026-03-16",
-        "customer_emailed": true
-    },
-    {
-        "customer_id": "5862785777818",
-        "url": "https://customskins.co.uk/collections/5862785777818",
-        "email": "greggbradenuk@me.com",
-        "first_name": "Gregg",
-        "last_name": "Braden",
-        "band_name": "",
-        "date_live": "2026-03-16",
-        "customer_emailed": true
-    },
-    {
-        "customer_id": "5862795608218",
-        "url": "https://customskins.co.uk/collections/5862795608218",
-        "email": "liam.feekery@mac.com",
-        "first_name": "Liam",
-        "last_name": "Feekery",
-        "band_name": "",
-        "date_live": "2026-03-16",
-        "customer_emailed": true
-    },
-    {
-        "customer_id": "5862794526874",
-        "url": "https://customskins.co.uk/collections/5862794526874",
-        "email": "mitchell@humphreys-online.co.uk",
-        "first_name": "Mitchell",
-        "last_name": "Humphreys",
-        "band_name": "",
-        "date_live": "2026-03-16",
-        "customer_emailed": true
-    },
-    {
         "customer_id": "5862788399258",
         "url": "https://customskins.co.uk/collections/5862788399258",
         "email": "pete38dd@hotmail.com",
         "first_name": "Pete",
         "last_name": "day",
-        "band_name": "The Nooks",
-        "date_live": "2026-03-16",
-        "customer_emailed": true
+        "band_name": "",
+        "date_live": "2026-03-17",
+        "customer_emailed": false
     }
 ]
