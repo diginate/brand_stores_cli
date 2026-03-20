@@ -16835,6 +16835,16 @@
         "email": "stephendcook@hotmail.co.uk",
         "first_name": "Stephen",
         "last_name": "Cook",
+        "band_name": "Common People",
+        "date_live": "2026-03-20",
+        "customer_emailed": false
+    },
+    {
+        "customer_id": "24703417745783",
+        "url": "https://customskins.co.uk/collections/24703417745783",
+        "email": "seanbeattie@live.co.uk",
+        "first_name": "Sean",
+        "last_name": "Beattie",
         "band_name": "",
         "date_live": "2026-03-20",
         "customer_emailed": false
