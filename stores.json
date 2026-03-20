@@ -16825,6 +16825,16 @@
         "email": "benb.esmanagement@gmail.com",
         "first_name": "Ben",
         "last_name": "Batres",
+        "band_name": "Elm Street",
+        "date_live": "2026-03-20",
+        "customer_emailed": false
+    },
+    {
+        "customer_id": "5863069581466",
+        "url": "https://customskins.co.uk/collections/5863069581466",
+        "email": "stephendcook@hotmail.co.uk",
+        "first_name": "Stephen",
+        "last_name": "Cook",
         "band_name": "",
         "date_live": "2026-03-20",
         "customer_emailed": false
