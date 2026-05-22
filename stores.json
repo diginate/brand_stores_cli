@@ -16115,7 +16115,7 @@
         "email": "jaynedh68@outlook.com",
         "first_name": "Jayne",
         "last_name": "Hodges",
-        "band_name": "",
+        "band_name": "The Barracks",
         "date_live": "2026-05-22",
         "customer_emailed": false
     },
@@ -16125,7 +16125,7 @@
         "email": "pedhannan@gmail.com",
         "first_name": "Patrick",
         "last_name": "Hannan",
-        "band_name": "",
+        "band_name": "Chezile",
         "date_live": "2026-05-22",
         "customer_emailed": false
     },
@@ -16135,7 +16135,7 @@
         "email": "iagyapong@yahoo.com",
         "first_name": "Isaac",
         "last_name": "Agyapong",
-        "band_name": "",
+        "band_name": "Brothers Band",
         "date_live": "2026-05-22",
         "customer_emailed": false
     },
@@ -16145,7 +16145,7 @@
         "email": "suicyco_industries@yahoo.com",
         "first_name": "Dan",
         "last_name": "Gillgrass",
-        "band_name": "",
+        "band_name": "Shit Barry",
         "date_live": "2026-05-22",
         "customer_emailed": false
     },
@@ -16155,7 +16155,7 @@
         "email": "stuart_carroll@yahoo.co.uk",
         "first_name": "Stu",
         "last_name": "Carroll",
-        "band_name": "",
+        "band_name": "Ego Friendly",
         "date_live": "2026-05-22",
         "customer_emailed": false
     },
@@ -16167,7 +16167,7 @@
         "last_name": "Proctor",
         "band_name": "",
         "date_live": "2026-05-22",
-        "customer_emailed": false
+        "customer_emailed": "Do not contact"
     },
     {
         "customer_id": "24362724917623",
@@ -16175,7 +16175,7 @@
         "email": "jayhepburn2000@gmail.com",
         "first_name": "Jay",
         "last_name": "Hepburn",
-        "band_name": "",
+        "band_name": "Stallion",
         "date_live": "2026-05-22",
         "customer_emailed": false
     },
@@ -16185,7 +16185,7 @@
         "email": "ajevley@gmail.com",
         "first_name": "Alexander",
         "last_name": "Evley",
-        "band_name": "",
+        "band_name": "Jon and the Medics",
         "date_live": "2026-05-22",
         "customer_emailed": false
     },
@@ -16195,7 +16195,7 @@
         "email": "caz.mcguire@gmail.com",
         "first_name": "Caroline",
         "last_name": "Aitchison",
-        "band_name": "",
+        "band_name": "Velvetbomb",
         "date_live": "2026-05-22",
         "customer_emailed": false
     },
@@ -16205,6 +16205,16 @@
         "email": "mr80srock@gmail.com",
         "first_name": "Paul",
         "last_name": "Giles",
+        "band_name": "Paul Santini",
+        "date_live": "2026-05-22",
+        "customer_emailed": false
+    },
+    {
+        "customer_id": "25123628319095",
+        "url": "https://customskins.co.uk/collections/25123628319095",
+        "email": "zarah@everybody-s.com",
+        "first_name": "Sarah",
+        "last_name": "KINSLEY",
         "band_name": "",
         "date_live": "2026-05-22",
         "customer_emailed": false
