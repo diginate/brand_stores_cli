@@ -16247,7 +16247,7 @@
         "last_name": "Bell",
         "band_name": "",
         "date_live": "2026-06-18",
-        "customer_emailed": false
+        "customer_emailed": "Do not contact"
     },
     {
         "customer_id": "25237292581239",
@@ -16255,7 +16255,7 @@
         "email": "nathanadams@icloud.com",
         "first_name": "Nathan",
         "last_name": "Adams",
-        "band_name": "",
+        "band_name": "Basal Ganglia",
         "date_live": "2026-06-18",
         "customer_emailed": false
     },
@@ -16265,7 +16265,7 @@
         "email": "mattclayson@yahoo.co.uk",
         "first_name": "Matt",
         "last_name": "Clayson",
-        "band_name": "",
+        "band_name": "Roman Revival",
         "date_live": "2026-06-18",
         "customer_emailed": false
     },
@@ -16275,7 +16275,7 @@
         "email": "conroyb@tiscali.co.uk",
         "first_name": "Brian",
         "last_name": "Conroy",
-        "band_name": "",
+        "band_name": "Lost Souls",
         "date_live": "2026-06-18",
         "customer_emailed": false
     },
@@ -16285,7 +16285,7 @@
         "email": "Manewey@googlemail.com",
         "first_name": "Michael",
         "last_name": "NEWEY",
-        "band_name": "",
+        "band_name": "Can't Buy Me Funk",
         "date_live": "2026-06-18",
         "customer_emailed": false
     },
@@ -16295,7 +16295,7 @@
         "email": "jameseaster79@hotmail.com",
         "first_name": "James",
         "last_name": "Easter",
-        "band_name": "",
+        "band_name": "Eaker",
         "date_live": "2026-06-18",
         "customer_emailed": false
     },
@@ -16303,9 +16303,9 @@
         "customer_id": "25171657785719",
         "url": "https://customskins.co.uk/collections/25171657785719",
         "email": "kennykenyon3004k@gmail.com",
-        "first_name": "Kenny (For Jasmine)",
+        "first_name": "Kenny",
         "last_name": "Kenyon",
-        "band_name": "",
+        "band_name": "Motorwrecked",
         "date_live": "2026-06-18",
         "customer_emailed": false
     },
@@ -16315,7 +16315,7 @@
         "email": "liamhouston123@gmail.com",
         "first_name": "Liam",
         "last_name": "Houston",
-        "band_name": "",
+        "band_name": "Ionasky",
         "date_live": "2026-06-18",
         "customer_emailed": false
     },
@@ -16325,7 +16325,7 @@
         "email": "mbreeves13@gmail.com",
         "first_name": "Matthew",
         "last_name": "Reeves",
-        "band_name": "",
+        "band_name": "Planet Cake",
         "date_live": "2026-06-18",
         "customer_emailed": false
     },
@@ -16335,7 +16335,7 @@
         "email": "ahattigan@gmail.com",
         "first_name": "Andrew",
         "last_name": "Hattigan",
-        "band_name": "",
+        "band_name": "Wolfrace",
         "date_live": "2026-06-18",
         "customer_emailed": false
     },
@@ -16345,7 +16345,7 @@
         "email": "thomcraigen@gmail.com",
         "first_name": "Thom",
         "last_name": "Craigen",
-        "band_name": "",
+        "band_name": "Some Lions",
         "date_live": "2026-06-18",
         "customer_emailed": false
     },
@@ -16355,7 +16355,7 @@
         "email": "saulauty@icloud.com",
         "first_name": "Saul",
         "last_name": "Auty",
-        "band_name": "",
+        "band_name": "Be Nothing Do Nothing",
         "date_live": "2026-06-18",
         "customer_emailed": false
     },
@@ -16367,7 +16367,7 @@
         "last_name": "Ulucay",
         "band_name": "",
         "date_live": "2026-06-18",
-        "customer_emailed": false
+        "customer_emailed": "Do not contact"
     },
     {
         "customer_id": "23472623976823",
@@ -16377,6 +16377,16 @@
         "last_name": "Bartlett",
         "band_name": "",
         "date_live": "2026-06-18",
+        "customer_emailed": "Do not contact"
+    },
+    {
+        "customer_id": "25290850632055",
+        "url": "https://customskins.co.uk/collections/25290850632055",
+        "email": "joshualeem09@gmail.com",
+        "first_name": "Josh",
+        "last_name": "Morland",
+        "band_name": "",
+        "date_live": "2026-08-05",
         "customer_emailed": false
     }
 ]
